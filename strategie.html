@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Stratégie & Audit Digitale - C.A.D.C.</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Stratégie digitale et audit digital pour optimiser votre présence en ligne. Conseil expert C.A.D.C. Cameroun.">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/theme-auto.css">
+  <link rel="stylesheet" href="assets/css/custom-improvements.css">
+  <link rel="stylesheet" href="assets/css/slider-fix.css">
+  <style>
+    .page-container {
+      position: relative;
+      min-height: 100vh;
+      background-color: #0c0c0c;
+      color: #fff;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 30px;
+      left: 30px;
+      z-index: 100;
+      padding: 10px 20px;
+      background-color: #5a7cff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 700;
+      transition: all .3s ease-in-out;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .back-button:hover {
+      background-color: transparent;
+      border: 2px solid #5a7cff;
+      box-shadow: 0 8px 20px rgba(15, 51, 255, 0.4);
+    }
+
+    .page-header {
+      padding: 100px 50px 50px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(15, 51, 255, 0.1), rgba(15, 51, 255, 0.05));
+      border-bottom: 1px solid rgba(15, 51, 255, 0.2);
+    }
+
+    .page-header h1 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 15px;
+      color: #5a7cff;
+    }
+
+    .page-header p {
+      font-size: 18px;
+      color: #888;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .page-content {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 50px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #5a7cff;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .section h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #5a7cff, transparent);
+    }
+
+    .section p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #ccc;
+      margin-bottom: 15px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .feature-card {
+      background: rgba(15, 51, 255, 0.05);
+      border: 1px solid rgba(15, 51, 255, 0.2);
+      padding: 30px;
+      border-radius: 8px;
+      transition: all .3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .feature-card:hover {
+      background: rgba(15, 51, 255, 0.1);
+      border-color: #5a7cff;
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(15, 51, 255, 0.2);
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      color: #5a7cff;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: #999;
+      line-height: 1.6;
+    }
+
+    .feature-card::before {
+      content: "✓";
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: #5a7cff;
+      color: #0c0c0c;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 24px;
+      margin-right: 10px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+
+    .cta-section {
+      background: rgba(15, 51, 255, 0.1);
+      border: 1px solid rgba(15, 51, 255, 0.3);
+      padding: 50px;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 60px;
+    }
+
+    .cta-section h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #5a7cff;
+    }
+
+    .cta-section p {
+      font-size: 14px;
+      color: #aaa;
+      margin-bottom: 30px;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      padding: 12px 30px;
+      background: #5a7cff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      transition: all .3s ease-in-out;
+      border: 2px solid #5a7cff;
+    }
+
+    .btn-cta:hover {
+      background: transparent;
+      box-shadow: 0 8px 20px rgba(15, 51, 255, 0.4);
+    }
+
+    .process-timeline {
+      position: relative;
+      padding: 30px 0;
+    }
+
+    .process-step {
+      display: flex;
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .process-step::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: 50px;
+      width: 2px;
+      height: calc(100% + 20px);
+      background: rgba(15, 51, 255, 0.3);
+    }
+
+    .process-step:last-child::before {
+      display: none;
+    }
+
+    .process-number {
+      width: 50px;
+      height: 50px;
+      background: #5a7cff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #0c0c0c;
+      font-weight: 900;
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-right: 30px;
+    }
+
+    .process-content h4 {
+      font-size: 16px;
+      color: #5a7cff;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .process-content p {
+      font-size: 13px;
+      color: #999;
+    }
+
+    .footer-link {
+      text-align: center;
+      padding: 40px 0;
+      border-top: 1px solid rgba(15, 51, 255, 0.2);
+      margin-top: 60px;
+    }
+
+    .footer-link a {
+      color: #5a7cff;
+      text-decoration: none;
+      font-weight: 700;
+      transition: color .3s ease-in-out;
+    }
+
+    .footer-link a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .page-header {
+        padding: 60px 20px 30px;
+      }
+
+      .page-header h1 {
+        font-size: 32px;
+      }
+
+      .page-content {
+        padding: 0 20px;
+      }
+
+      .back-button {
+        top: 15px;
+        left: 15px;
+        padding: 8px 15px;
+        font-size: 10px;
+      }
+
+      .section h2 {
+        font-size: 24px;
+      }
+
+      .cta-section {
+        padding: 30px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back-button">← Retour</a>
+
+  <div class="page-container">
+    <div class="page-header">
+      <h1>Stratégie Digitale</h1>
+      <p>Audit, Conseil et Planification Stratégique pour Optimiser Votre Présence en Ligne</p>
+    </div>
+
+    <div class="page-content">
+      <!-- Section Introduction -->
+      <div class="section">
+        <h2>Pourquoi une Stratégie Digitale ?</h2>
+        <p>
+          À l'ère du numérique, une présence en ligne bien pensée n'est plus une option, c'est une nécessité. 
+          Chez C.A.D.C., nous vous aiderons à transformer votre vision en stratégie digitale efficace et mesurable.
+        </p>
+        <p>
+          Notre approche combine l'analyse approfondie, la créativité et l'expérience pour créer une stratégie 
+          adaptée à vos objectifs commerciaux et à votre audience.
+        </p>
+      </div>
+
+      <!-- Section Services -->
+      <div class="section">
+        <h2>Nos Services Stratégiques</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>Audit Digital</h3>
+            <p>Analyse complète de votre présence en ligne, concurrence et opportunités de croissance.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Conseil Marketing</h3>
+            <p>Stratégie marketing adaptée à votre secteur et vos cibles de marché.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Planification Digitale</h3>
+            <p>Roadmap détaillée pour vos projets web, mobile et réseaux sociaux.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Analyse de Données</h3>
+            <p>Insights basées sur les données pour prendre des décisions éclairées.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Optimisation SEO</h3>
+            <p>Stratégie complète pour améliorer votre visibilité dans les moteurs de recherche.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Gestion de Réputaton</h3>
+            <p>Surveillance et amélioration de votre image de marque en ligne.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Processus -->
+      <div class="section">
+        <h2>Notre Processus Stratégique</h2>
+        <div class="process-timeline">
+          <div class="process-step">
+            <div class="process-number">1</div>
+            <div class="process-content">
+              <h4>Découverte & Audit</h4>
+              <p>Nous commençons par comprendre votre business, vos objectifs et votre marché cible.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-number">2</div>
+            <div class="process-content">
+              <h4>Analyse Concurrentielle</h4>
+              <p>Étude approfondie de vos concurrents pour identifier les opportunités et les différenciateurs.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-number">3</div>
+            <div class="process-content">
+              <h4>Définition de la Stratégie</h4>
+              <p>Création d'une stratégie digitale personnalisée alignée avec vos objectifs commerciaux.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-number">4</div>
+            <div class="process-content">
+              <h4>Planification & Implémentation</h4>
+              <p>Roadmap détaillée avec jalons, KPIs et métriques pour mesurer le succès.</p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-number">5</div>
+            <div class="process-content">
+              <h4>Suivi & Optimisation</h4>
+              <p>Suivi continu des performances et ajustements pour maximiser vos résultats.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section Avantages -->
+      <div class="section">
+        <h2>Avantages de Notre Approche</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <h3>Données Probantes</h3>
+            <p>Toutes nos recommandations sont basées sur des analyses de données et des insights marché.</p>
+          </div>
+          <div class="feature-card">
+            <h3>ROI Maximisé</h3>
+            <p>Stratégie orientée résultats pour optimiser votre retour sur investissement digital.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Expertise Locale</h3>
+            <p>Connaissance approfondie du marché camerounais et africain.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Équipe Expérimentée</h3>
+            <p>Nos stratèges ont des années d'expérience en digital marketing et web strategy.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Accompagnement Complet</h3>
+            <p>De la planification à l'implémentation, nous vous accompagnons à chaque étape.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Transparent & Mesurable</h3>
+            <p>KPIs clairs et rapports réguliers pour suivre vos progrès.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Section -->
+      <div class="cta-section">
+        <h3>Prêt à Transformer Votre Stratégie Digitale ?</h3>
+        <p>Nous sommes là pour vous aider à atteindre vos objectifs commerciaux en ligne.</p>
+        <a href="index.html" class="btn-cta">Contactez-nous</a>
+      </div>
+
+      <!-- Footer Links -->
+      <div class="footer-link">
+        <p>Explorez aussi : 
+          <a href="developpement.html">Développement Web & Mobile</a> • 
+          <a href="design.html">Design UI/UX</a>
+        </p>
+      </div>
+    </div>
+  </div>
+<script src="assets/js/theme-switcher.js"></script>
+<!-- GSAP Animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script src="assets/js/gsap-animations.js"></script>
+</body>
+</html>

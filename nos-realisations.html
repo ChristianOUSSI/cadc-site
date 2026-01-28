@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nos Réalisations - C.A.D.C. Agence Digitale">
+  <title>Nos Réalisations - C.A.D.C. Agence Digitale Douala</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/theme-auto.css">
+  <link rel="stylesheet" href="assets/css/custom-improvements.css">
+  <link rel="stylesheet" href="assets/css/slider-fix.css">
+  <style>
+    body {
+      background-color: #0c0c0c;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .page-wrapper {
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 40px;
+      padding: 10px 20px;
+      background: rgba(15, 51, 255, 0.1);
+      border: 1px solid rgba(15, 51, 255, 0.3);
+      border-radius: 4px;
+      color: #5a7cff;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      transition: all 0.3s ease-in-out;
+    }
+    .back-link:hover {
+      background: rgba(15, 51, 255, 0.2);
+      box-shadow: 0 0 15px rgba(15, 51, 255, 0.3);
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: slideDown 0.8s ease-out;
+    }
+    .page-header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #5a7cff, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .timeline {
+      position: relative;
+      padding: 40px 0;
+      margin-bottom: 60px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, #5a7cff, rgba(15, 51, 255, 0.2));
+    }
+    .timeline-item {
+      margin-bottom: 50px;
+      opacity: 0;
+      animation: slideInTimeline 0.8s ease-out forwards;
+    }
+    .timeline-item:nth-child(1) { animation-delay: 0.1s; }
+    .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+    .timeline-item:nth-child(3) { animation-delay: 0.3s; }
+    .timeline-item:nth-child(4) { animation-delay: 0.4s; }
+    .timeline-item:nth-child(5) { animation-delay: 0.5s; }
+    .timeline-item:nth-child(6) { animation-delay: 0.6s; }
+    .timeline-item:nth-child(even) {
+      margin-left: 50%;
+      padding-left: 40px;
+    }
+    .timeline-item:nth-child(odd) {
+      margin-right: 50%;
+      padding-right: 40px;
+      text-align: right;
+    }
+    .timeline-content {
+      background: rgba(15, 51, 255, 0.08);
+      border: 2px solid rgba(15, 51, 255, 0.2);
+      border-radius: 8px;
+      padding: 25px;
+      cursor: pointer;
+      transition: all 0.4s ease-in-out;
+      position: relative;
+    }
+    .timeline-content::before {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #5a7cff;
+      border-radius: 50%;
+      top: 30px;
+      z-index: 10;
+    }
+    .timeline-item:nth-child(even) .timeline-content::before {
+      left: -22px;
+    }
+    .timeline-item:nth-child(odd) .timeline-content::before {
+      right: -22px;
+    }
+    .timeline-date {
+      font-size: 13px;
+      color: #5a7cff;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .timeline-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .timeline-description {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .timeline-stats {
+      display: flex;
+      gap: 20px;
+      font-size: 12px;
+      color: #666;
+    }
+    .timeline-content:hover {
+      background: rgba(15, 51, 255, 0.15);
+      border-color: #5a7cff;
+      box-shadow: 0 10px 30px rgba(15, 51, 255, 0.2);
+      transform: scale(1.03);
+    }
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-bottom: 60px;
+    }
+    .achievement-card {
+      background: rgba(15, 51, 255, 0.05);
+      border: 2px solid rgba(15, 51, 255, 0.2);
+      border-radius: 12px;
+      padding: 30px;
+      text-align: center;
+      transition: all 0.4s ease-in-out;
+    }
+    .achievement-card:hover {
+      background: rgba(15, 51, 255, 0.1);
+      border-color: #5a7cff;
+      box-shadow: 0 15px 40px rgba(15, 51, 255, 0.2);
+      transform: translateY(-8px);
+    }
+    .achievement-icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .achievement-card:nth-child(2) .achievement-icon { animation-delay: 0.3s; }
+    .achievement-card:nth-child(3) .achievement-icon { animation-delay: 0.6s; }
+    .achievement-number {
+      font-size: 36px;
+      font-weight: 900;
+      color: #5a7cff;
+      margin-bottom: 8px;
+    }
+    .achievement-title {
+      font-size: 14px;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes slideInTimeline {
+      from {
+        opacity: 0;
+        transform: translateX(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+    }
+    @media (max-width: 1024px) {
+      .timeline::before {
+        left: 20px;
+      }
+      .timeline-item,
+      .timeline-item:nth-child(even),
+      .timeline-item:nth-child(odd) {
+        margin: 0;
+        padding: 0 0 50px 80px;
+        text-align: left;
+      }
+      .timeline-item:nth-child(even) .timeline-content::before,
+      .timeline-item:nth-child(odd) .timeline-content::before {
+        left: -24px;
+        right: auto;
+      }
+    }
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 36px; }
+      .achievements-grid { grid-template-columns: 1fr; }
+      .timeline::before { left: 10px; }
+      .timeline-item,
+      .timeline-item:nth-child(even),
+      .timeline-item:nth-child(odd) {
+        padding: 0 0 50px 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="container">
+      <a href="nos-clients.html" class="back-link">← Retour aux Clients</a>
+      
+      <div class="page-header">
+        <h1>Nos Réalisations & Milestones</h1>
+        <p>10 ans d'excellence et d'innovation dans le digital</p>
+      </div>
+
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <div class="achievement-icon">🏆</div>
+          <div class="achievement-number">10+</div>
+          <div class="achievement-title">Années d'Expérience</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">💼</div>
+          <div class="achievement-number">500+</div>
+          <div class="achievement-title">Projets Réalisés</div>
+        </div>
+        <div class="achievement-card">
+          <div class="achievement-icon">😊</div>
+          <div class="achievement-number">150+</div>
+          <div class="achievement-title">Clients Satisfaits</div>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2013</div>
+            <div class="timeline-title">Fondation de C.A.D.C.</div>
+            <div class="timeline-description">
+              Naissance de l'agence digitale avec une vision: transformer le digital en Afrique.
+            </div>
+            <div class="timeline-stats">
+              <span>👥 3 fondateurs</span>
+              <span>💡 1 vision</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2015</div>
+            <div class="timeline-title">1er Contrat Enterprise</div>
+            <div class="timeline-description">
+              Premier grand contrat avec une entreprise internationale. Tournant majeur.
+            </div>
+            <div class="timeline-stats">
+              <span>📈 +200% croissance</span>
+              <span>👥 +5 employés</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2017</div>
+            <div class="timeline-title">Expansion Régionale</div>
+            <div class="timeline-description">
+              Ouverture de bureaux à Yaoundé et Libreville. C.A.D.C. devient une agence multinationale.
+            </div>
+            <div class="timeline-stats">
+              <span>🌍 3 pays</span>
+              <span>👥 50+ employés</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2019</div>
+            <div class="timeline-title">Certification ISO 27001</div>
+            <div class="timeline-description">
+              Obtention de la certification de sécurité informatique ISO 27001.
+            </div>
+            <div class="timeline-stats">
+              <span>🔒 Sécurité garantie</span>
+              <span>📜 Certification mondiale</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2021</div>
+            <div class="timeline-title">Plateforme Cloud Propriétaire</div>
+            <div class="timeline-description">
+              Lancement de notre plateforme cloud propriétaire pour optimiser les services clients.
+            </div>
+            <div class="timeline-stats">
+              <span>☁️ Infrastructure personnalisée</span>
+              <span>⚡ 99.9% uptime</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2023</div>
+            <div class="timeline-title">Équipe de 200+ Experts</div>
+            <div class="timeline-description">
+              Atteinte d'une équipe de 200+ professionnels qualifiés à travers 5 pays africains.
+            </div>
+            <div class="timeline-stats">
+              <span>👥 200+ experts</span>
+              <span>🌍 5 pays africains</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background: rgba(15, 51, 255, 0.08); border: 2px solid rgba(15, 51, 255, 0.2); border-radius: 12px; padding: 40px; text-align: center;">
+        <h2 style="font-size: 28px; font-weight: 900; color: #5a7cff; margin-bottom: 20px;">Notre Avenir</h2>
+        <p style="font-size: 16px; color: #aaa; line-height: 1.8; margin-bottom: 20px;">
+          Nous continuons notre trajectoire ascendante avec l'ambition de devenir 
+          le leader incontournable du digital en Afrique. Notre prochain objectif: 
+          atteindre 500+ clients satisfaits et 1000+ projets réalisés en 2025.
+        </p>
+        <p style="font-size: 14px; color: #666;">
+          "L'innovation n'est pas un acte unique, c'est une mentalité de tous les jours" - C.A.D.C.
+        </p>
+      </div>
+    </div>
+  </div>
+<script src="assets/js/theme-switcher.js"></script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nos Contrats - C.A.D.C. Agence Digitale">
+  <title>Nos Contrats - C.A.D.C. Agence Digitale Douala</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/theme-auto.css">
+  <link rel="stylesheet" href="assets/css/custom-improvements.css">
+  <link rel="stylesheet" href="assets/css/slider-fix.css">
+  <style>
+    body {
+      background-color: #0c0c0c;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .page-wrapper {
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 40px;
+      padding: 10px 20px;
+      background: rgba(15, 51, 255, 0.1);
+      border: 1px solid rgba(15, 51, 255, 0.3);
+      border-radius: 4px;
+      color: #5a7cff;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      transition: all 0.3s ease-in-out;
+    }
+    .back-link:hover {
+      background: rgba(15, 51, 255, 0.2);
+      box-shadow: 0 0 15px rgba(15, 51, 255, 0.3);
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: slideDown 0.8s ease-out;
+    }
+    .page-header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #5a7cff, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .philosophy-section {
+      background: rgba(15, 51, 255, 0.05);
+      border: 2px solid rgba(15, 51, 255, 0.2);
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 40px;
+      animation: fadeIn 0.8s ease-out;
+    }
+    .philosophy-section h2 {
+      font-size: 28px;
+      font-weight: 900;
+      color: #5a7cff;
+      margin-bottom: 20px;
+    }
+    .philosophy-section p {
+      font-size: 15px;
+      color: #aaa;
+      line-height: 1.8;
+      margin-bottom: 15px;
+    }
+    .contracts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    .contract-card {
+      background: rgba(15, 51, 255, 0.08);
+      border: 2px solid rgba(15, 51, 255, 0.2);
+      border-radius: 12px;
+      padding: 30px;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      position: relative;
+      overflow: hidden;
+    }
+    .contract-card::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #5a7cff, #fff);
+      transition: width 0.5s ease-in-out;
+    }
+    .contract-card:hover::after {
+      width: 100%;
+    }
+    .contract-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .contract-card:nth-child(2) .contract-icon {
+      animation-delay: 0.3s;
+    }
+    .contract-card:nth-child(3) .contract-icon {
+      animation-delay: 0.6s;
+    }
+    .contract-card:nth-child(4) .contract-icon {
+      animation-delay: 0.9s;
+    }
+    .contract-title {
+      font-size: 18px;
+      font-weight: 900;
+      color: #5a7cff;
+      margin-bottom: 10px;
+    }
+    .contract-duration {
+      font-size: 13px;
+      color: #666;
+      margin-bottom: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .contract-description {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .contract-features {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .contract-features li {
+      font-size: 13px;
+      color: #aaa;
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .contract-features li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #5a7cff;
+      font-weight: 900;
+    }
+    .contract-card:hover {
+      background: rgba(15, 51, 255, 0.15);
+      border-color: #5a7cff;
+      box-shadow: 0 20px 50px rgba(15, 51, 255, 0.3);
+      transform: translateY(-8px);
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+    .value-item {
+      text-align: center;
+      padding: 25px;
+      background: rgba(15, 51, 255, 0.05);
+      border: 1px solid rgba(15, 51, 255, 0.2);
+      border-radius: 8px;
+      transition: all 0.4s ease-in-out;
+    }
+    .value-item:hover {
+      background: rgba(15, 51, 255, 0.1);
+      border-color: #5a7cff;
+      transform: translateY(-5px);
+    }
+    .value-icon {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+    .value-title {
+      font-size: 16px;
+      font-weight: 900;
+      color: #5a7cff;
+      margin-bottom: 10px;
+    }
+    .value-description {
+      font-size: 13px;
+      color: #aaa;
+      line-height: 1.6;
+    }
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 36px; }
+      .contracts-grid { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="container">
+      <a href="nos-clients.html" class="back-link">← Retour aux Clients</a>
+      
+      <div class="page-header">
+        <h1>Nos Engagements & Contrats</h1>
+        <p>La confiance est le fondement de nos partenariats</p>
+      </div>
+
+      <div class="philosophy-section">
+        <h2>Notre Philosophie de Partenariat</h2>
+        <p>
+          Chez C.A.D.C., nous croyons en des partenariats durables basés sur la transparence, 
+          la qualité et l'engagement mutuel. Chaque contrat est conçu pour créer de la valeur 
+          à long terme pour nos clients.
+        </p>
+        <p>
+          Notre approche se distingue par une écoute active, une collaboration étroite et 
+          une responsabilité partagée. Nous ne sommes pas juste des prestataires, nous sommes 
+          vos partenaires de croissance numérique.
+        </p>
+      </div>
+
+      <div class="contracts-grid">
+        <div class="contract-card">
+          <div class="contract-icon">📋</div>
+          <div class="contract-title">Contrat d'Engagement Standard</div>
+          <div class="contract-duration">12 mois - Renouvelable</div>
+          <p class="contract-description">
+            Notre package classique pour les PME souhaitant digitaliser leurs opérations.
+          </p>
+          <ul class="contract-features">
+            <li>Support technique 24/7</li>
+            <li>Maintenance régulière</li>
+            <li>Mises à jour de sécurité</li>
+            <li>1 réunion mensuelle</li>
+            <li>Rapports trimestriels</li>
+          </ul>
+        </div>
+
+        <div class="contract-card">
+          <div class="contract-icon">⭐</div>
+          <div class="contract-title">Contrat Premium Pro</div>
+          <div class="contract-duration">24 mois - Service Premium</div>
+          <p class="contract-description">
+            Pour les entreprises cherchant une solution complète et dédiée.
+          </p>
+          <ul class="contract-features">
+            <li>Équipe dédiée assignée</li>
+            <li>Support prioritaire 24/7</li>
+            <li>Optimisation continue</li>
+            <li>Réunions hebdomadaires</li>
+            <li>Rapports mensuels détaillés</li>
+          </ul>
+        </div>
+
+        <div class="contract-card">
+          <div class="contract-icon">🚀</div>
+          <div class="contract-title">Contrat Enterprise+</div>
+          <div class="contract-duration">36 mois - Support Illimité</div>
+          <p class="contract-description">
+            Solution enterprise pour les grandes organisations ayant des besoins complexes.
+          </p>
+          <ul class="contract-features">
+            <li>Infrastructure personnalisée</li>
+            <li>Support SLA garanti 99.9%</li>
+            <li>Audit de sécurité annuel</li>
+            <li>Réunion stratégique mensuelle</li>
+            <li>Roadmap technologique personnalisée</li>
+          </ul>
+        </div>
+
+        <div class="contract-card">
+          <div class="contract-icon">🤝</div>
+          <div class="contract-title">Partenariat Stratégique</div>
+          <div class="contract-duration">Long terme - Co-création</div>
+          <p class="contract-description">
+            Pour les partenaires cherchant une croissance mutuelle et l'innovation conjointe.
+          </p>
+          <ul class="contract-features">
+            <li>Investissement partagé</li>
+            <li>Équipe projet mixte</li>
+            <li>Bénéfices partagés</li>
+            <li>Comité directeur mensuel</li>
+            <li>Innovation collaborative</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top: 60px;">
+        <h2 style="font-size: 28px; font-weight: 900; color: #5a7cff; margin-bottom: 30px; text-align: center;">Nos Valeurs Fondamentales</h2>
+        <div class="values-grid">
+          <div class="value-item">
+            <div class="value-icon">🎯</div>
+            <div class="value-title">Excellence</div>
+            <div class="value-description">
+              Nous livrons toujours au-delà des attentes avec une qualité premium.
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">💡</div>
+            <div class="value-title">Innovation</div>
+            <div class="value-description">
+              L'innovation est au cœur de chaque solution que nous créons.
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🔒</div>
+            <div class="value-title">Sécurité</div>
+            <div class="value-description">
+              Vos données et systèmes sont protégés par nos meilleures pratiques.
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">👥</div>
+            <div class="value-title">Collaboration</div>
+            <div class="value-description">
+              Nous travaillons en étroite collaboration pour votre succès.
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">📈</div>
+            <div class="value-title">Croissance</div>
+            <div class="value-description">
+              Votre croissance est notre succès et notre engagement principal.
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">⏱️</div>
+            <div class="value-title">Réactivité</div>
+            <div class="value-description">
+              Nous répondons rapidement aux demandes et résolvons les problèmes.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="assets/js/theme-switcher.js"></script>
+</body>
+</html>

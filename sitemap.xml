@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>index.html</loc>
+    <priority>1.0</priority>
+    <lastmod>2026-01-03</lastmod>
+  </url>
+  <url>
+    <loc>strategie.html</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-01-03</lastmod>
+  </url>
+
+  <url>
+    <loc>developpement.html</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-01-03</lastmod>
+  </url>
+
+  <url>
+    <loc>design.html</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-01-03</lastmod>
+  </url>
+
+  <url>
+    <loc>demo-button.html</loc>
+    <priority>0.5</priority>
+    <lastmod>2026-01-03</lastmod>
+  </url>
+
+  <url>
+    <loc>nos-clients.html</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-01-03</lastmod>
+  </url>
+
+  <url>
+    <loc>nos-contrats.html</loc>
+    <priority>0.7</priority>
+    <lastmod>2026-01-03</lastmod>
+  </url>
+
+  <url>
+    <loc>nos-projets.html</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-01-03</lastmod>
+  </url>
+  <url>
+    <loc>nos-realisations.html</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-01-03</lastmod>
+  </url>
+  <url>
+    <loc>christian-oussi.html</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-01-03</lastmod>
+  </url>
+  <url>
+    <loc>marc-laurent.html</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-01-03</lastmod>
+  </url>
+  <url>
+    <loc>axel-dupont.html</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-01-03</lastmod>
+  </url>
+  <url>
+    <loc>sarah-martin.html</loc>
+    <priority>0.6</priority>
+    <lastmod>2026-01-03</lastmod>
+
+  </url>
+</urlset>

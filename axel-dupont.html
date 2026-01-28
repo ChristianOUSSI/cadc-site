@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Axel Dupont - Expert UX/UI Design de C.A.D.C.">
+  <title>Axel Dupont - C.A.D.C. Agence Digitale</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/theme-auto.css">
+  <link rel="stylesheet" href="assets/css/custom-improvements.css">
+  <link rel="stylesheet" href="assets/css/slider-fix.css">
+  <style>
+    body {
+      background-color: #0c0c0c;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .page-wrapper {
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header-member {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-bottom: 60px;
+    }
+    .member-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 3px solid #5a7cff;
+      overflow: hidden;
+      margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(15, 51, 255, 0.4);
+    }
+    .member-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .member-info h1 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #5a7cff, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .member-role {
+      font-size: 20px;
+      color: #5a7cff;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+    .member-bio {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .section h2 {
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 30px;
+      color: #5a7cff;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    .section h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #5a7cff, transparent);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .skill-card {
+      background: rgba(15, 51, 255, 0.1);
+      border: 1px solid rgba(15, 51, 255, 0.3);
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.4s ease-in-out;
+    }
+    .skill-card:hover {
+      background: rgba(15, 51, 255, 0.2);
+      border-color: #5a7cff;
+      box-shadow: 0 0 20px rgba(15, 51, 255, 0.3);
+      transform: translateY(-5px);
+    }
+    .skill-card h3 {
+      font-size: 16px;
+      color: #5a7cff;
+      margin-bottom: 10px;
+      font-weight: 900;
+    }
+    .skill-card p {
+      font-size: 13px;
+      color: #aaa;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .project-card {
+      background: rgba(15, 51, 255, 0.05);
+      border: 1px solid rgba(15, 51, 255, 0.2);
+      border-radius: 8px;
+      padding: 25px;
+      transition: all 0.4s ease-in-out;
+    }
+    .project-card:hover {
+      background: rgba(15, 51, 255, 0.15);
+      border-color: #5a7cff;
+      transform: translateY(-5px);
+    }
+    .project-card h3 {
+      font-size: 18px;
+      color: #5a7cff;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .project-card p {
+      font-size: 13px;
+      color: #aaa;
+      line-height: 1.6;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 40px;
+      padding: 10px 20px;
+      background: rgba(15, 51, 255, 0.1);
+      border: 1px solid rgba(15, 51, 255, 0.3);
+      border-radius: 4px;
+      color: #5a7cff;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      transition: all 0.3s ease-in-out;
+    }
+    .back-link:hover {
+      background: rgba(15, 51, 255, 0.2);
+      box-shadow: 0 0 15px rgba(15, 51, 255, 0.3);
+    }
+    @media (max-width: 768px) {
+      .header-member {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .member-image {
+        width: 200px;
+        height: 200px;
+      }
+      .member-info h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="container">
+      <a href="index.html" class="back-link">← Retour à l'équipe</a>
+      
+      <div class="header-member">
+        <div class="member-image">
+          <img src="assets/img/about-winners.jpg" alt="Axel Dupont">
+        </div>
+        <div class="member-info">
+          <h1>Axel Dupont</h1>
+          <div class="member-role">Expert en UX/UI Design</div>
+          <div class="member-bio">
+            Axel Dupont est un designer visionnaire spécialisé en UX/UI. Avec 7 ans d'expérience en design digital, il crée des expériences utilisateur intuitives et belles. Son approche user-centric, basée sur la recherche et les tests, garantit des interfaces qui conversent et ravissent les utilisateurs.
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Compétences Principales</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>🎨 UI Design</h3>
+            <p>Création de designs modernes, cohérents et accessibles suivant les standards WCAG.</p>
+          </div>
+          <div class="skill-card">
+            <h3>👥 UX Research</h3>
+            <p>Études utilisateur, interviews, wireframes et user flows basés sur comportements réels.</p>
+          </div>
+          <div class="skill-card">
+            <h3>🎭 Prototyping</h3>
+            <p>Création prototypes interactifs haute fidelité avec Figma et Adobe XD.</p>
+          </div>
+          <div class="skill-card">
+            <h3>♿ Accessibility</h3>
+            <p>Conception accessible pour tous incluant utilisateurs avec handicaps visuels/moteurs.</p>
+          </div>
+          <div class="skill-card">
+            <h3>📱 Responsive Design</h3>
+            <p>Design adaptatif pour tous les appareils: mobile, tablet, desktop et wearables.</p>
+          </div>
+          <div class="skill-card">
+            <h3>🎬 Animation & Motion</h3>
+            <p>Création d'animations et micro-interactions qui guident et engagent les utilisateurs.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Projets de Design</h2>
+        <div class="projects">
+          <div class="project-card">
+            <h3>Application Banking Mobile</h3>
+            <p>Redesign complet de l'UX: réduction des clics de 40%, augmentation du taux de conversion de 35%.</p>
+          </div>
+          <div class="project-card">
+            <h3>Plateforme SaaS B2B</h3>
+            <p>Design système complet avec 150+ components, guidelines et documentation.</p>
+          </div>
+          <div class="project-card">
+            <h3>E-Commerce Luxury</h3>
+            <p>Design haut-de-gamme avec animations fluides et user journey optimisé pour conversion.</p>
+          </div>
+          <div class="project-card">
+            <h3>Accessible Government Portal</h3>
+            <p>Portal gouvernemental WCAG AAA compliant permettant services digitaux accessibles à tous.</p>
+          </div>
+          <div class="project-card">
+            <h3>Marketplace Design System</h3>
+            <p>Création design system scalable utilisé par 100+ designers dans l'organisation.</p>
+          </div>
+          <div class="project-card">
+            <h3>Social Media Platform</h3>
+            <p>Redesign UX permettant collaboration équipe, réduisant friction et augmentant adoption.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Philosophie du Design</h2>
+        <p style="font-size: 15px; line-height: 1.8; color: #ccc; max-width: 800px;">
+          Axel croit que le bon design est invisible - les utilisateurs ne pensent qu'à accomplir leurs tâches, pas à l'interface. Il combine esthétique moderne avec fonctionnalité pragmatique, toujours en mettant l'utilisateur au centre. Son mantra: "Simplicity is the ultimate sophistication".
+        </p>
+      </div>
+    </div>
+  </div>
+<script src="assets/js/theme-switcher.js"></script>
+</body>
+</html>

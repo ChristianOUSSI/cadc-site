@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Démo - Améliorations Section WORK</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background-color: #0c0c0c;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    .header h1 {
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #5a7cff, #fff, #5a7cff);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShiftDemo 6s ease-in-out infinite;
+    }
+    
+    .header p {
+      font-size: 16px;
+      color: #aaa;
+      margin-bottom: 10px;
+    }
+    
+    .improvements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    
+    .improvement-card {
+      background: rgba(15, 51, 255, 0.05);
+      border: 1px solid rgba(15, 51, 255, 0.3);
+      border-radius: 8px;
+      padding: 30px;
+      transition: all 0.4s ease-in-out;
+    }
+    
+    .improvement-card:hover {
+      background: rgba(15, 51, 255, 0.15);
+      border-color: #5a7cff;
+      box-shadow: 0 0 30px rgba(15, 51, 255, 0.3);
+      transform: translateY(-5px);
+    }
+    
+    .improvement-card h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #5a7cff;
+      font-weight: 900;
+    }
+    
+    .improvement-card p {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+    
+    .feature-list {
+      list-style: none;
+      margin: 15px 0 0 0;
+    }
+    
+    .feature-list li {
+      font-size: 13px;
+      color: #aaa;
+      margin: 8px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .feature-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #5a7cff;
+      font-weight: 900;
+    }
+    
+    .demo-section {
+      margin-bottom: 60px;
+    }
+    
+    .demo-section h2 {
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 30px;
+      color: #5a7cff;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .demo-section h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #5a7cff, transparent);
+    }
+    
+    .animation-demo {
+      background: rgba(15, 51, 255, 0.1);
+      border: 1px solid rgba(15, 51, 255, 0.3);
+      border-radius: 8px;
+      padding: 40px 30px;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    
+    .title-demo {
+      font-size: 48px;
+      font-weight: 900;
+      margin: 30px 0;
+      background: linear-gradient(135deg, #5a7cff, #fff, #5a7cff);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShiftDemo 6s ease-in-out infinite;
+      letter-spacing: -1px;
+    }
+    
+    .underline-demo {
+      display: inline-block;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .underline-demo::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, #5a7cff, transparent);
+      box-shadow: 0 0 20px rgba(15, 51, 255, 0.6);
+      animation: expandLineDemo 3s ease-in-out infinite;
+    }
+    
+    .button-demo {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background: rgba(15, 51, 255, 0.05);
+      border: 2px solid #5a7cff;
+      border-radius: 50%;
+      cursor: pointer;
+      margin: 20px;
+      transition: all 0.4s ease-in-out;
+      animation: buttonFloatDemo 3s ease-in-out infinite;
+    }
+    
+    .button-demo:hover {
+      background: rgba(15, 51, 255, 0.2);
+      box-shadow: 0 0 30px rgba(15, 51, 255, 0.6), inset 0 0 20px rgba(15, 51, 255, 0.2);
+      transform: scale(1.15);
+    }
+    
+    .button-demo svg {
+      width: 24px;
+      height: 24px;
+      fill: #5a7cff;
+      transition: all 0.3s ease-in-out;
+    }
+    
+    .button-demo:hover svg {
+      filter: drop-shadow(0 0 8px #5a7cff);
+    }
+    
+    .image-demo {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid rgba(15, 51, 255, 0.3);
+      margin: 20px auto;
+      background: linear-gradient(135deg, #5a7cff, #282828);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      animation: imagePulseDemo 2.5s ease-in-out infinite;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .image-demo::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent);
+      pointer-events: none;
+    }
+    
+    .image-demo:hover {
+      transform: scale(1.05) rotate(2deg);
+      border-color: #5a7cff;
+    }
+    
+    .name-demo {
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin: 15px 0;
+      background: linear-gradient(135deg, #5a7cff, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 1px;
+      animation: titlePulseDemo 2s ease-in-out infinite;
+    }
+    
+    .role-demo {
+      font-size: 12px;
+      color: #aaa;
+      line-height: 1.4;
+      animation: descriptionFadeDemo 0.8s ease-in-out;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid rgba(15, 51, 255, 0.2);
+      font-size: 13px;
+    }
+    
+    .comparison-table th {
+      background: rgba(15, 51, 255, 0.15);
+      color: #5a7cff;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+    
+    .comparison-table tr:hover {
+      background: rgba(15, 51, 255, 0.05);
+    }
+    
+    .before {
+      color: #aaa;
+    }
+    
+    .after {
+      color: #5a7cff;
+      font-weight: 700;
+    }
+    
+    @keyframes gradientShiftDemo {
+      0%   { background-position: 0% center; }
+      50%  { background-position: 100% center; }
+      100% { background-position: 0% center; }
+    }
+    
+    @keyframes expandLineDemo {
+      0%   { width: 40px; opacity: 0.3; }
+      50%  { width: 100px; opacity: 1; }
+      100% { width: 40px; opacity: 0.3; }
+    }
+    
+    @keyframes titlePulseDemo {
+      0%   { text-shadow: 0 0 0 rgba(15, 51, 255, 0); letter-spacing: 1px; }
+      50%  { text-shadow: 0 0 10px rgba(15, 51, 255, 0.6); letter-spacing: 2px; }
+      100% { text-shadow: 0 0 0 rgba(15, 51, 255, 0); letter-spacing: 1px; }
+    }
+    
+    @keyframes descriptionFadeDemo {
+      0%   { opacity: 0; transform: translateY(-10px); }
+      50%  { opacity: 1; transform: translateY(0); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes imagePulseDemo {
+      0%   { box-shadow: 0 0 0 0 rgba(15, 51, 255, 0.7), inset 0 0 20px rgba(15, 51, 255, 0.1); }
+      50%  { box-shadow: 0 0 30px 15px rgba(15, 51, 255, 0), inset 0 0 30px rgba(15, 51, 255, 0.15); }
+      100% { box-shadow: 0 0 0 0 rgba(15, 51, 255, 0.7), inset 0 0 20px rgba(15, 51, 255, 0.1); }
+    }
+    
+    @keyframes buttonFloatDemo {
+      0%   { transform: translateY(0px); }
+      50%  { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+  </style>
+  <link rel=\"stylesheet\" href=\"assets/css/theme-auto.css\">
+  <link rel=\"stylesheet\" href=\"assets/css/custom-improvements.css\">
+  <link rel=\"stylesheet\" href=\"assets/css/slider-fix.css\">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Section WORK Améliorée</h1>
+      <p>✨ Découvrez tous les nouveaux effets et animations</p>
+    </div>
+    
+    <div class="improvements-grid">
+      <div class="improvement-card">
+        <h3>🎨 Titre Gradient</h3>
+        <p>Le titre "Notre équipe" maintenant avec gradient animé.</p>
+        <ul class="feature-list">
+          <li>Font: 48px, Weight: 900</li>
+          <li>Gradient: bleu → blanc → bleu</li>
+          <li>Animation: 6s infinite</li>
+          <li>Underline pulsante</li>
+        </ul>
+      </div>
+      
+      <div class="improvement-card">
+        <h3>🖼️ Images Équipe</h3>
+        <p>Photos avec animations fluides et effets 3D.</p>
+        <ul class="feature-list">
+          <li>Animation imagePulse (2.5s)</li>
+          <li>Border: 3px solid neon</li>
+          <li>Shiny overlay effect</li>
+          <li>Hover: scale & rotate</li>
+        </ul>
+      </div>
+      
+      <div class="improvement-card">
+        <h3>✨ Noms & Descriptions</h3>
+        <p>Titres avec gradient et descriptions animées.</p>
+        <ul class="feature-list">
+          <li>titlePulse animation (2s)</li>
+          <li>Gradient text bleu-blanc</li>
+          <li>Letter-spacing pulse</li>
+          <li>descriptionFade (0.8s)</li>
+        </ul>
+      </div>
+      
+      <div class="improvement-card">
+        <h3>🎛️ Boutons Slider</h3>
+        <p>Prev/Next boutons redesignés avec effet glass.</p>
+        <ul class="feature-list">
+          <li>Background: glassmorphism</li>
+          <li>Border: 2px neon blue</li>
+          <li>Hover glow effect</li>
+          <li>buttonFloat animation (3s)</li>
+        </ul>
+      </div>
+      
+      <div class="improvement-card">
+        <h3>🎭 Transitions</h3>
+        <p>Mouvements fluides avec cubic-bezier avancé.</p>
+        <ul class="feature-list">
+          <li>cubic-bezier(0.68, -0.55, 0.265, 1.55)</li>
+          <li>Bounce effect élégant</li>
+          <li>Scale 0.8 → 1 → 0.85</li>
+          <li>Opacity transitions</li>
+        </ul>
+      </div>
+      
+      <div class="improvement-card">
+        <h3>🎬 Keyframes</h3>
+        <p>6 animations personnalisées continuelles.</p>
+        <ul class="feature-list">
+          <li>gradientShiftH2</li>
+          <li>expandLine</li>
+          <li>titlePulse</li>
+          <li>imagePulse & plus</li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Demo Section -->
+    <div class="demo-section">
+      <h2>📺 Démo Visuelle</h2>
+      
+      <!-- Title Animation -->
+      <div class="animation-demo">
+        <p style="font-size: 12px; color: #aaa; margin-bottom: 20px;">Titre avec Gradient Animé</p>
+        <div class="title-demo">Notre équipe</div>
+        <div class="underline-demo"></div>
+      </div>
+      
+      <!-- Image Animation -->
+      <div class="animation-demo">
+        <p style="font-size: 12px; color: #aaa; margin-bottom: 20px;">Image avec Pulse Animation (Survolez pour zoom)</p>
+        <div class="image-demo">👤</div>
+        <div class="name-demo">Christian OUSSI</div>
+        <div class="role-demo">Directeur de la start-up C.A.D.C. | Dev fullstack</div>
+      </div>
+      
+      <!-- Button Animation -->
+      <div class="animation-demo">
+        <p style="font-size: 12px; color: #aaa; margin-bottom: 20px;">Boutons Slider (Flottent & Glow)</p>
+        <div>
+          <button class="button-demo" title="Précédent">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+            </svg>
+          </button>
+          <button class="button-demo" title="Suivant">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Comparison Table -->
+    <div class="demo-section">
+      <h2>📊 Avant / Après</h2>
+      
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Élément</th>
+            <th class="before">Avant</th>
+            <th class="after">Après</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>H2 Font Size</strong></td>
+            <td class="before">30px</td>
+            <td class="after">48px (+60%)</td>
+          </tr>
+          <tr>
+            <td><strong>H2 Font Weight</strong></td>
+            <td class="before">Normal</td>
+            <td class="after">900 (Ultra Bold)</td>
+          </tr>
+          <tr>
+            <td><strong>H2 Animation</strong></td>
+            <td class="before">None</td>
+            <td class="after">Gradient + Underline Pulse</td>
+          </tr>
+          <tr>
+            <td><strong>Item Title</strong></td>
+            <td class="before">12px / 16px center</td>
+            <td class="after">16px / 20px center</td>
+          </tr>
+          <tr>
+            <td><strong>Item Image Border</strong></td>
+            <td class="before">None</td>
+            <td class="after">3px solid #5a7cff</td>
+          </tr>
+          <tr>
+            <td><strong>Item Image Box-Shadow</strong></td>
+            <td class="before">None</td>
+            <td class="after">Animated Pulse</td>
+          </tr>
+          <tr>
+            <td><strong>Button Background</strong></td>
+            <td class="before">#282828</td>
+            <td class="after">Glass morphism</td>
+          </tr>
+          <tr>
+            <td><strong>Button Border</strong></td>
+            <td class="before">Round gray</td>
+            <td class="after">2px #5a7cff + Glow</td>
+          </tr>
+          <tr>
+            <td><strong>Button Animation</strong></td>
+            <td class="before">None</td>
+            <td class="after">Float (3s)</td>
+          </tr>
+          <tr>
+            <td><strong>Total Animations</strong></td>
+            <td class="before">0</td>
+            <td class="after">6 keyframes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
+    <div style="text-align: center; margin-top: 60px; padding: 40px; background: rgba(15, 51, 255, 0.1); border-radius: 8px; border: 1px solid rgba(15, 51, 255, 0.3);">
+      <h3 style="color: #5a7cff; font-size: 24px; margin-bottom: 15px;">✨ La Section WORK est Maintenant Époustouflante!</h3>
+      <p style="color: #aaa; font-size: 14px;">Avec gradient animé, transitions fluides, et 6 animations spectaculaires.</p>
+    </div>
+  </div>
+<script src="assets/js/theme-switcher.js"></script>
+</body>
+</html>

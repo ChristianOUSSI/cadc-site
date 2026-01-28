@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nos Projets - C.A.D.C. Agence Digitale">
+  <title>Nos Projets - C.A.D.C. Agence Digitale Douala</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/theme-auto.css">
+  <link rel="stylesheet" href="assets/css/custom-improvements.css">
+  <link rel="stylesheet" href="assets/css/slider-fix.css">
+  <style>
+    body {
+      background-color: #0c0c0c;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .page-wrapper {
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 40px;
+      padding: 10px 20px;
+      background: rgba(15, 51, 255, 0.1);
+      border: 1px solid rgba(15, 51, 255, 0.3);
+      border-radius: 4px;
+      color: #5a7cff;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      transition: all 0.3s ease-in-out;
+    }
+    .back-link:hover {
+      background: rgba(15, 51, 255, 0.2);
+      box-shadow: 0 0 15px rgba(15, 51, 255, 0.3);
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: slideDown 0.8s ease-out;
+    }
+    .page-header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #5a7cff, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    .project-card {
+      background: rgba(15, 51, 255, 0.08);
+      border: 2px solid rgba(15, 51, 255, 0.2);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      position: relative;
+    }
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(15, 51, 255, 0.3), transparent);
+      z-index: 1;
+      transition: left 0.8s ease-in-out;
+    }
+    .project-card:hover::before {
+      left: 100%;
+    }
+    .project-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, rgba(15, 51, 255, 0.3), rgba(15, 51, 255, 0.1));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 64px;
+      border-bottom: 2px solid rgba(15, 51, 255, 0.2);
+    }
+    .project-content {
+      padding: 25px;
+    }
+    .project-title {
+      font-size: 20px;
+      font-weight: 900;
+      color: #5a7cff;
+      margin-bottom: 10px;
+    }
+    .project-tech {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 15px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tech-badge {
+      background: rgba(15, 51, 255, 0.15);
+      padding: 4px 10px;
+      border-radius: 12px;
+      color: #5a7cff;
+    }
+    .project-description {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .project-card:hover {
+      background: rgba(15, 51, 255, 0.15);
+      border-color: #5a7cff;
+      box-shadow: 0 20px 50px rgba(15, 51, 255, 0.3);
+      transform: translateY(-10px);
+    }
+    .project-result {
+      display: flex;
+      gap: 15px;
+      font-size: 13px;
+      color: #999;
+    }
+    .result-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .highlight {
+      color: #5a7cff;
+      font-weight: 700;
+    }
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 36px; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="container">
+      <a href="nos-clients.html" class="back-link">← Retour aux Clients</a>
+      
+      <div class="page-header">
+        <h1>Nos Projets Innovants</h1>
+        <p>Des solutions digitales qui transforment les entreprises</p>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">💼</div>
+          <div class="project-content">
+            <div class="project-title">Plateforme E-Commerce TechAfrica</div>
+            <div class="project-tech">
+              <span class="tech-badge">React</span>
+              <span class="tech-badge">Node.js</span>
+              <span class="tech-badge">MongoDB</span>
+            </div>
+            <p class="project-description">Plateforme e-commerce complète pour TechAfrica permettant la vente en ligne de produits électroniques avec intégration de paiements.</p>
+            <div class="project-result">
+              <div class="result-item">📈 <span><span class="highlight">+300%</span> de ventes</span></div>
+              <div class="result-item">⏱️ <span><span class="highlight">2 mois</span> délai</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">📱</div>
+          <div class="project-content">
+            <div class="project-title">Application Mobile Douala Express</div>
+            <div class="project-tech">
+              <span class="tech-badge">Flutter</span>
+              <span class="tech-badge">Firebase</span>
+              <span class="tech-badge">GPS</span>
+            </div>
+            <p class="project-description">Application de livraison mobile avec suivi GPS en temps réel, intégration de paiements et notifications push.</p>
+            <div class="project-result">
+              <div class="result-item">📦 <span><span class="highlight">50k+</span> téléchargements</span></div>
+              <div class="result-item">⭐ <span>Note: <span class="highlight">4.8/5</span></span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">🏢</div>
+          <div class="project-content">
+            <div class="project-title">Système de Gestion RH InnovateCMR</div>
+            <div class="project-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">Django</span>
+              <span class="tech-badge">PostgreSQL</span>
+            </div>
+            <p class="project-description">Système complet de gestion des ressources humaines avec paie automatisée, congés et rapports intégrés.</p>
+            <div class="project-result">
+              <div class="result-item">👥 <span><span class="highlight">500+</span> utilisateurs</span></div>
+              <div class="result-item">⚡ <span><span class="highlight">80%</span> moins de temps</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">🌐</div>
+          <div class="project-content">
+            <div class="project-title">Refonte Site Web Digital Hub CM</div>
+            <div class="project-tech">
+              <span class="tech-badge">Next.js</span>
+              <span class="tech-badge">Tailwind</span>
+              <span class="tech-badge">Vercel</span>
+            </div>
+            <p class="project-description">Refonte complète du site vitrine avec modernisation du design et amélioration de la performance SEO.</p>
+            <div class="project-result">
+              <div class="result-item">🚀 <span><span class="highlight">90/100</span> Lighthouse</span></div>
+              <div class="result-item">📊 <span><span class="highlight">+150%</span> trafic</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">☁️</div>
+          <div class="project-content">
+            <div class="project-title">Infrastructure Cloud StartupNord</div>
+            <div class="project-tech">
+              <span class="tech-badge">AWS</span>
+              <span class="tech-badge">Docker</span>
+              <span class="tech-badge">Kubernetes</span>
+            </div>
+            <p class="project-description">Migration vers le cloud avec containerisation et orchestration pour scalabilité optimale.</p>
+            <div class="project-result">
+              <div class="result-item">💰 <span><span class="highlight">40%</span> d'économie</span></div>
+              <div class="result-item">🔒 <span><span class="highlight">99.99%</span> disponibilité</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">🤖</div>
+          <div class="project-content">
+            <div class="project-title">Solution IA pour CloudServices</div>
+            <div class="project-tech">
+              <span class="tech-badge">Python</span>
+              <span class="tech-badge">TensorFlow</span>
+              <span class="tech-badge">API</span>
+            </div>
+            <p class="project-description">Implémentation d'une solution IA pour la prédiction et l'optimisation des processus métier.</p>
+            <div class="project-result">
+              <div class="result-item">🎯 <span><span class="highlight">92%</span> précision</span></div>
+              <div class="result-item">⚙️ <span><span class="highlight">60%</span> plus rapide</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="assets/js/theme-switcher.js"></script>
+</body>
+</html>
