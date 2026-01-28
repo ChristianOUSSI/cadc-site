@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+import { Montserrat } from "next/font/google";
 
 // 1. DÉPLACEZ VOS FICHIERS CSS DANS UN NOUVEAU DOSSIER `styles/`
 // Puis, nous les importons ici pour qu'ils s'appliquent à tout le site.
@@ -13,6 +14,14 @@ import "@/styles/custom-improvements.css";
 if (typeof window !== 'undefined') {
   window.history.scrollRestoration = 'manual';
 }
+
+// OPTIMISATION : Configuration de la police avec next/font
+// Cela héberge la police localement et améliore les performances (pas de requête Google Fonts bloquante)
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "C.A.D.C. - Agence Digitale Douala",
@@ -35,10 +44,9 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0f33ff" />
         <link rel="manifest" href="/manifest.json" />
-        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
       </head>
       {/* La classe "loading" du body original est conservée */}
-      <body className="loading">
+      <body className={`loading ${montserrat.className}`}>
         {children}
 
         {/* Enregistrement du Service Worker pour la PWA */}
