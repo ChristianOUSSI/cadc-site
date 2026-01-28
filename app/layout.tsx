@@ -3,7 +3,6 @@ import Script from "next/script";
 import { Montserrat } from "next/font/google";
 
 import "@/styles/main.css";
-// import "@/styles/inline-extracted.css";
 import "@/styles/theme-auto.css";
 import "@/styles/custom-improvements.css";
 import "@/styles/slider-fix.css";
@@ -15,7 +14,7 @@ if (typeof window !== 'undefined') {
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["300", "400", "700", "900"],
   display: "swap",
 });
 
