@@ -642,7 +642,7 @@ button, a[href*="wa.me"], a[href*="mailto:"] {
 }
 
 /* ============================================
-   STYLES STRUCTURELS PRINCIPAUX
+   STYLES EXTRAITS DE INDEX.HTML (Refactoring)
    ============================================ */
 
 /* Centrage global du contenu des sections principales */
@@ -883,7 +883,7 @@ button, a[href*="wa.me"], a[href*="mailto:"] {
   justify-content: center !important;
 }
 
-/* Styles des composants UI */
+/* Styles extraits (Nettoyage du code inline) */
 .btn-clients {
   position: relative;
   z-index: 10; /* Assure que le bouton est au-dessus de l'image */
