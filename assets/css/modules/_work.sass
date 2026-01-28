@@ -1,0 +1,345 @@
+.work
+  position: relative
+  display: flex
+  width: 960px
+  max-width: 80%
+  height: 100%
+  flex-direction: column
+  justify-content: center
+  margin: 0 auto
+
+  @media (max-width: 1180px)
+    max-width: 100%
+
+  h2
+    margin: 0 0 40px 0
+    font-size: 48px
+    font-weight: 900
+    text-align: center
+    background: linear-gradient(135deg, #0f33ff, #fff, #0f33ff)
+    background-size: 200% 200%
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    background-clip: text
+    animation: gradientShiftH2 6s ease-in-out infinite
+    letter-spacing: -1px
+    line-height: 1.1
+    position: relative
+    padding-bottom: 20px
+
+    &::after
+      content: ""
+      position: absolute
+      bottom: 0
+      left: 50%
+      transform: translateX(-50%)
+      width: 80px
+      height: 4px
+      background: linear-gradient(90deg, transparent, #0f33ff, transparent)
+      box-shadow: 0 0 20px rgba(15, 51, 255, 0.6)
+      animation: expandLine 3s ease-in-out infinite
+
+  &--lockup
+    position: relative
+
+    .slider
+      position: relative
+      display: flex
+      width: 80%
+      margin: 0 auto
+      padding: 0
+      list-style: none
+
+      &--item
+        position: absolute
+        display: none
+        text-align: center
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+
+        a
+          text-decoration: none
+          color: #858585
+          display: flex
+          flex-direction: column
+          align-items: center
+          justify-content: center
+
+        &-title
+          margin-top: 15px
+          font-size: 16px
+          font-weight: 900
+          text-transform: uppercase
+          background: linear-gradient(135deg, #0f33ff, #fff)
+          -webkit-background-clip: text
+          -webkit-text-fill-color: transparent
+          background-clip: text
+          letter-spacing: 1px
+          animation: titlePulse 2s ease-in-out infinite
+          transition: all 0.3s ease-in-out
+
+        &-description
+          display: none
+          max-width: 250px
+          margin: 8px auto 0
+          font-size: 12px
+          color: #aaa
+          line-height: 1.4
+          font-weight: 400
+          animation: descriptionFade 0.8s ease-in-out
+
+        &-image
+          width: 150px
+          height: 150px
+          margin: 0 auto
+          border-radius: 50%
+          overflow: hidden
+          border: 3px solid rgba(15, 51, 255, 0.3)
+          position: relative
+          box-shadow: 0 0 0 0 rgba(15, 51, 255, 0.5)
+          animation: imagePulse 2.5s ease-in-out infinite
+
+          img
+            width: 100%
+            height: 100%
+            object-fit: cover
+            transition: transform 0.5s ease-in-out
+
+          &::before
+            content: ""
+            position: absolute
+            top: 0
+            left: 0
+            right: 0
+            bottom: 0
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.2), transparent)
+            pointer-events: none
+
+        &-left
+          top: 50%
+          left: 0
+          transform: translateY(-50%) scale(0.8)
+          display: block
+          opacity: 0.6
+          transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+
+          a
+            color: #888
+
+          .slider--item-image
+            box-shadow: 0 10px 30px rgba(15, 51, 255, 0.1)
+
+          &:hover
+            opacity: 0.8
+            transform: translateY(-50%) scale(0.85)
+
+        &-right
+          top: 50%
+          right: 0
+          transform: translateY(-50%) scale(0.8)
+          display: block
+          opacity: 0.6
+          transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+
+          a
+            color: #888
+
+          .slider--item-image
+            box-shadow: 0 10px 30px rgba(15, 51, 255, 0.1)
+
+          &:hover
+            opacity: 0.8
+            transform: translateY(-50%) scale(0.85)
+
+        &-center
+          position: relative
+          top: 30px
+          left: 50%
+          transform: translateX(-50%) scale(1)
+          display: block
+          opacity: 1
+          transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+          z-index: 10
+
+          a
+            color: $white
+
+          .slider--item-title
+            margin-top: 25px
+            font-size: 20px
+            font-weight: 900
+            animation: titlePulse 2s ease-in-out infinite
+
+          .slider--item-description
+            display: block
+            animation: descriptionFade 0.8s ease-in-out
+
+          .slider--item-image
+            width: 300px
+            height: 300px
+            box-shadow: 0 20px 60px rgba(15, 51, 255, 0.4), inset 0 0 30px rgba(15, 51, 255, 0.1)
+            border: 3px solid #0f33ff
+
+            img
+              &:hover
+                transform: scale(1.05) rotate(2deg)
+
+    .slider--next,
+    .slider--prev
+      position: absolute
+      top: 160px
+      display: flex
+      width: 50px
+      height: 50px
+      align-items: center
+      justify-content: center
+      background-color: transparent
+      border: 2px solid #0f33ff
+      border-radius: 50%
+      cursor: pointer
+      transition: all 0.4s ease-in-out
+      backdrop-filter: blur(10px)
+      background: rgba(15, 51, 255, 0.05)
+
+      &:hover
+        background: rgba(15, 51, 255, 0.2)
+        box-shadow: 0 0 30px rgba(15, 51, 255, 0.6), inset 0 0 20px rgba(15, 51, 255, 0.2)
+        transform: scale(1.15)
+
+      svg
+        width: 20px
+        fill: #0f33ff
+        transition: all 0.3s ease-in-out
+
+      &:hover svg
+        filter: drop-shadow(0 0 8px #0f33ff)
+
+    .slider--next
+      right: 0
+      animation: buttonFloat 3s ease-in-out infinite
+
+    .slider--prev
+      left: 0
+      animation: buttonFloat 3s ease-in-out infinite reverse
+
+@media (max-width: 900px)
+
+  .work
+
+    &--lockup
+
+      .slider
+
+        &--item
+
+          &-image
+            width: 120px
+            height: 120px
+
+          &-center
+
+            .slider--item-image
+              width: 240px
+              height: 240px
+
+      .slider--next,
+      .slider--prev
+        top: 130px
+
+@media (max-width: 767px)
+
+  .work
+
+    &--lockup
+
+      .slider
+        width: 75%
+
+        &--item
+
+          &-image
+            width: 90px
+            height: 90px
+
+          &-center
+
+            .slider--item-image
+              width: 190px
+              height: 190px
+
+      .slider--next,
+      .slider--prev
+        top: 105px
+
+@media (max-width: 600px)
+
+  .work
+
+    &--lockup
+
+      .slider
+        width: auto
+
+        &--item
+
+          &-left,
+          &-right
+            display: none
+
+// ✨ Keyframes Animations
+
+@keyframes gradientShiftH2
+  0%
+    background-position: 0% center
+  50%
+    background-position: 100% center
+  100%
+    background-position: 0% center
+
+@keyframes expandLine
+  0%
+    width: 40px
+    opacity: 0.3
+  50%
+    width: 100px
+    opacity: 1
+  100%
+    width: 40px
+    opacity: 0.3
+
+@keyframes titlePulse
+  0%
+    text-shadow: 0 0 0 rgba(15, 51, 255, 0)
+    letter-spacing: 1px
+  50%
+    text-shadow: 0 0 10px rgba(15, 51, 255, 0.6)
+    letter-spacing: 2px
+  100%
+    text-shadow: 0 0 0 rgba(15, 51, 255, 0)
+    letter-spacing: 1px
+
+@keyframes descriptionFade
+  0%
+    opacity: 0
+    transform: translateY(-10px)
+  50%
+    opacity: 1
+    transform: translateY(0)
+  100%
+    opacity: 1
+    transform: translateY(0)
+
+@keyframes imagePulse
+  0%
+    box-shadow: 0 0 0 0 rgba(15, 51, 255, 0.7), inset 0 0 20px rgba(15, 51, 255, 0.1)
+  50%
+    box-shadow: 0 0 30px 15px rgba(15, 51, 255, 0), inset 0 0 30px rgba(15, 51, 255, 0.15)
+  100%
+    box-shadow: 0 0 0 0 rgba(15, 51, 255, 0.7), inset 0 0 20px rgba(15, 51, 255, 0.1)
+
+@keyframes buttonFloat
+  0%
+    transform: translateY(0px)
+  50%
+    transform: translateY(-8px)
+  100%
+    transform: translateY(0px)
