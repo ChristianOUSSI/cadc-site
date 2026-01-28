@@ -3,9 +3,10 @@ import Script from "next/script";
 import { Montserrat } from "next/font/google";
 
 import "@/styles/main.css";
-import "@/styles/inline-extracted.css";
+// import "@/styles/inline-extracted.css";
 import "@/styles/theme-auto.css";
 import "@/styles/custom-improvements.css";
+import "@/styles/slider-fix.css";
 
 // Gestion du FOUC (Flash of Unstyled Content)
 if (typeof window !== 'undefined') {
