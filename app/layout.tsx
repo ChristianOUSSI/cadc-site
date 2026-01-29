@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import Image from "next/image";
 import { Montserrat } from "next/font/google";
 
 import "@/styles/main.css";
@@ -63,11 +64,12 @@ export default function RootLayout({
             transition: "opacity 0.6s ease-out, visibility 0.6s ease-out",
           }}
         >
-          <img
+          <Image
             src="/assets/img/logo.svg"
             alt="CADC Logo"
-            width="100"
-            height="100"
+            width={100}
+            height={100}
+            priority
             style={{ marginBottom: "20px", filter: "drop-shadow(0 0 10px rgba(90, 124, 255, 0.5))" }}
           />
           <div
@@ -130,7 +132,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         <Script src="/assets/js/theme-switcher.js" strategy="afterInteractive" />
-        <Script src="/assets/js/functions.js" strategy="afterInteractive" />
+        <Script src="/assets/js/functions-min.js" strategy="afterInteractive" />
         <Script src="/assets/js/custom.js" strategy="afterInteractive" />
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" strategy="afterInteractive" />
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" strategy="afterInteractive" />
