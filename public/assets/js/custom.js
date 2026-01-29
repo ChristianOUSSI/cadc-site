@@ -76,6 +76,12 @@ $(document).ready(function() {
   $('.side-nav li').each(function() {
     observer.observe(this, { attributes: true });
   });
+
+  // Gestion de la fermeture du menu (clic sur la zone de retour ou un lien du menu)
+  $('.outer-nav--return, .outer-nav li').on('click', function() {
+    $('.perspective').removeClass('effect-rotate-left--animate');
+    $('.outer-nav, .outer-nav--return').removeClass('is-vis');
+  });
 });
 
 /* =========================================
