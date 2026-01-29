@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Montserrat } from "next/font/google";
 
@@ -18,11 +18,22 @@ const montserrat = Montserrat({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#0f33ff",
+  width: "device-width",
+  initialScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "C.A.D.C. - Agence Digitale Douala",
   description: "Site de l'agence digitale C.A.D.C. à Douala, Cameroun. Stratégie, Développement et Design.",
   icons: {
     apple: "/apple-touch-icon.png",
+  },
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
   },
 };
 
@@ -33,15 +44,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr">
-      <head>
-        <meta charSet="utf-8" />
-        <meta httpEquiv="x-ua-compatible" content="ie=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#0f33ff" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="manifest" href="/manifest.json" />
-      </head>
       <body className={`loading ${montserrat.className}`}>
         {/* ÉCRAN DE CHARGEMENT (SPLASH SCREEN) PERSONNALISÉ */}
         <div
@@ -128,7 +130,7 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
         <Script src="/assets/js/theme-switcher.js" strategy="afterInteractive" />
-        <Script src="/assets/js/functions-min.js" strategy="afterInteractive" />
+        <Script src="/assets/js/functions.js" strategy="afterInteractive" />
         <Script src="/assets/js/custom.js" strategy="afterInteractive" />
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" strategy="afterInteractive" />
         <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" strategy="afterInteractive" />
