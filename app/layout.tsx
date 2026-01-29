@@ -28,9 +28,6 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "C.A.D.C. - Agence Digitale Douala",
   description: "Site de l'agence digitale C.A.D.C. à Douala, Cameroun. Stratégie, Développement et Design.",
-  icons: {
-    apple: "/apple-touch-icon.png",
-  },
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
