@@ -364,6 +364,39 @@ body {
   visibility: visible;
 }
 
+.outer-nav > li {
+  transform-style: preserve-3d;
+  transform: translateX(350px) translateZ(-1000px);
+  font-size: 55px;
+  font-weight: 900;
+  opacity: 0;
+  cursor: pointer;
+  transition: transform .2s, opacity .2s;
+}
+
+.outer-nav > li.is-vis {
+  transform: translateX(0) translateZ(0);
+  opacity: 1;
+}
+
+.outer-nav > li::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 15px;
+  opacity: 0;
+  background-color: var(--theme-accent, #5a7cff);
+  z-index: -1;
+  transition: opacity .2s;
+}
+
+.outer-nav > li.is-active::before {
+  opacity: 1;
+}
+
 /* 5. Zone de retour (clic pour fermer le menu) */
 .outer-nav--return {
   position: absolute;

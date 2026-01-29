@@ -57,6 +57,10 @@ body.theme-day .side-nav > li {
   color: #1a1a1a;
 }
 
+body.theme-day .outer-nav > li {
+  color: #1a1a1a;
+}
+
 body.theme-day .side-nav > li span {
   color: #1a1a1a;
 }
@@ -174,6 +178,10 @@ body.theme-evening .header--nav-toggle::after {
 }
 
 body.theme-evening .side-nav > li {
+  color: #ffffff;
+}
+
+body.theme-evening .outer-nav > li {
   color: #ffffff;
 }
 

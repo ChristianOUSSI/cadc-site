@@ -27,14 +27,6 @@
 a { color:#87ceeb; transition:color 0.18s ease; }
 a:hover { color:#5a7cff; }
 
-@media (max-width:900px){\n  .modal--information{ padding:16px; }\n  .work h2, .about h2, .hire h2 { font-size:24px; }\n}
-  .contact--lockup{ max-width:100%; flex:1 1 100%; }
-  .contact-map{ max-width:100%; flex:1 1 100%; }
-  .modal--information{ padding:16px; }
-  .contact-map iframe { height:360px; }
-  .work h2, .about h2, .hire h2 { font-size:24px; }
-}
-
 /* Hire section grid & card styles (optimized) */
 .hire--grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 30px; padding: 0 20px; }
 .hire-card { background: linear-gradient(135deg, rgba(135,206,235,0.08) 0%, rgba(224,246,255,0.04) 100%); border: 1px solid rgba(15,51,255,0.12); border-radius: 10px; padding: 16px 14px; text-decoration: none; color: inherit; transition: transform 0.18s ease, opacity 0.18s ease, border-color 0.18s ease; display: flex; flex-direction: column; align-items: center; text-align: center; position: relative; overflow: hidden; will-change: transform, opacity; }
@@ -74,7 +66,12 @@ a:hover { color:#5a7cff; }
   .hire-card, .hire-icon, .cta, .intro--options a, .slider--item { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; transform: none !important; }
 }
 
-@media (max-width:900px){\n  .modal--information{ padding:16px; }\n  .work h2, .about h2, .hire h2 { font-size:24px; }\n}
+@media (max-width:900px) {
+  .modal--information{ padding:16px; }
+  .work h2, .about h2, .hire h2 { font-size:24px; }
+  .contact--lockup{ max-width:100%; flex:1 1 100%; }
+  .contact-map{ max-width:100%; flex:1 1 100%; }
+  .contact-map iframe { height:360px; }
   .hire-card { padding: 12px 10px; }
   .hire-icon { font-size: 32px; margin-bottom: 8px; }
   .hire-card h3 { font-size: 14px; margin-bottom: 4px; }

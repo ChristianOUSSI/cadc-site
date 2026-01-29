@@ -173,20 +173,6 @@ button, a[href*="wa.me"], a[href*="mailto:"] {
   letter-spacing: -1px;
 }
 
-/* Amélioration des cartes */
-.hire-card {
-  border-radius: 8px;
-  background-color: var(--theme-card);
-  border: 1px solid var(--theme-border);
-  transition: all 0.3s ease;
-}
-
-.hire-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--theme-accent);
-  box-shadow: 0 8px 24px rgba(15, 51, 255, 0.15);
-}
-
 /* ============================================
    SECTION CONTACT - RESPONSIVITÉ
    ============================================ */
@@ -711,7 +697,7 @@ button, a[href*="wa.me"], a[href*="mailto:"] {
 }
 
 .hire-card {
-  background: rgba(20, 20, 20, 0.6);
+  background: var(--theme-card);
   border: 1px solid rgba(90, 124, 255, 0.2);
   border-radius: 12px;
   padding: 20px 15px;
@@ -720,13 +706,14 @@ button, a[href*="wa.me"], a[href*="mailto:"] {
   align-items: center;
   text-align: center;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  backdrop-filter: blur(10px);
+  /* backdrop-filter: blur(10px); Removed to respect theme opacity */
   box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  cursor: pointer;
 }
 
 .hire-card:hover {
   transform: translateY(-10px) scale(1.02);
-  background: rgba(30, 30, 30, 0.8);
+  background: var(--theme-card); /* Utilise la couleur du thème */
   border-color: #5a7cff;
   box-shadow: 0 20px 40px rgba(15, 51, 255, 0.3);
 }
@@ -771,12 +758,6 @@ button, a[href*="wa.me"], a[href*="mailto:"] {
   opacity: 1;
 }
 
-@media (max-width: 900px) {
-  .hire--grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 600px) {
   .hire--grid {
     grid-template-columns: repeat(2, 1fr);
@@ -818,6 +799,12 @@ button, a[href*="wa.me"], a[href*="mailto:"] {
     position: absolute;
     top: -6px; bottom: -6px;
     left: -6px; right: -6px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hire--grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 

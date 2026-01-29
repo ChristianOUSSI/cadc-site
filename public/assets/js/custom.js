@@ -24,11 +24,13 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
       // Aller à la section suivante
       if (activeIndex < sideNavItems.length - 1) {
+        e.preventDefault();
         sideNavItems[activeIndex + 1].click();
       }
     } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
       // Aller à la section précédente
       if (activeIndex > 0) {
+        e.preventDefault();
         sideNavItems[activeIndex - 1].click();
       }
     } else if (e.key === 'Enter') {
@@ -75,12 +77,6 @@ $(document).ready(function() {
   // Appliquer l'observateur sur les 5 éléments de navigation
   $('.side-nav li').each(function() {
     observer.observe(this, { attributes: true });
-  });
-
-  // Gestion de la fermeture du menu (clic sur la zone de retour ou un lien du menu)
-  $('.outer-nav--return, .outer-nav li').on('click', function() {
-    $('.perspective').removeClass('effect-rotate-left--animate');
-    $('.outer-nav, .outer-nav--return').removeClass('is-vis');
   });
 });
 
