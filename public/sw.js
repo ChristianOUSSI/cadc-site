@@ -5,7 +5,8 @@ const URLS_TO_CACHE = [
   '/assets/img/logo.svg',
   '/assets/js/theme-switcher.js',
   '/assets/js/functions-min.js',
-  '/assets/js/custom.js'
+  '/assets/js/custom.js',
+  '/assets/js/gsap-animations.js'
 ];
 
 // Installation du Service Worker
