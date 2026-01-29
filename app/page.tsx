@@ -4,39 +4,38 @@ import { useEffect } from "react";
 
 export default function HomePage() {
   
-  // Intégration des scripts inline de l'index.html (Etoiles filantes + Theme Toggle)
-  useEffect(() => {
-    // Gestion du bouton de changement de thème manuel
-    const btn = document.getElementById('theme-toggle-btn');
+  const handleThemeToggle = () => {
     const themes = ['day', 'evening', 'night', 'storm'];
-    
-    const handleThemeToggle = () => {
-      // Fonction pour obtenir le thème actuel (basé sur la classe body)
-      const getCurrentThemeIndex = () => {
-        for (let i = 0; i < themes.length; i++) {
-          if (document.body.classList.contains('theme-' + themes[i])) return i;
-        }
-        return 2; // Default night
-      };
 
-      const currentIndex = getCurrentThemeIndex();
-      const nextTheme = themes[(currentIndex + 1) % themes.length];
-      
-      // Utiliser l'API themeSwitcher si disponible, sinon fallback manuel
-      // @ts-ignore
-      if (window.themeSwitcher && window.themeSwitcher.forceTheme) {
-        // @ts-ignore
-        window.themeSwitcher.forceTheme(nextTheme);
+    const getCurrentThemeIndex = () => {
+      for (let i = 0; i < themes.length; i++) {
+        if (document.body.classList.contains('theme-' + themes[i])) return i;
       }
-      
-      themes.forEach(t => document.body.classList.remove('theme-' + t));
-      document.body.classList.add('theme-' + nextTheme);
+      return 2; // Default night
     };
 
-    if (btn) {
-      btn.addEventListener('click', handleThemeToggle);
-    }
+    const currentIndex = getCurrentThemeIndex();
+    const nextTheme = themes[(currentIndex + 1) % themes.length];
 
+    // Priorité à l'API themeSwitcher (celle de ton script theme-switcher.js)
+    if (typeof window !== 'undefined' && (window as any).themeSwitcher) {
+      try {
+        (window as any).themeSwitcher.forceTheme(nextTheme);
+      } catch (e) {
+        console.warn("Erreur themeSwitcher :", e);
+        // fallback manuel
+        document.body.classList.remove(...themes.map(t => `theme-${t}`));
+        document.body.classList.add(`theme-${nextTheme}`);
+      }
+    } else {
+      // Fallback manuel (classes sur body)
+      document.body.classList.remove(...themes.map(t => `theme-${t}`));
+      document.body.classList.add(`theme-${nextTheme}`);
+    }
+  };
+
+  // Intégration des scripts inline de l'index.html (Etoiles filantes + Theme Toggle)
+  useEffect(() => {
     // Génération d'étoiles filantes aléatoires
     const container = document.createElement('div');
     container.style.position = 'fixed';
@@ -84,7 +83,7 @@ export default function HomePage() {
                   <p>C.A.D.C</p>
                 </a>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                  <button id="theme-toggle-btn" onClick={handleThemeToggle} aria-label="Changer de thème" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', padding: '5px' }}>
+                  <button id="theme-toggle-btn" aria-label="Changer de thème" style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'inherit', padding: '5px' }}>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
                   </button>
                   <div className="header--nav-toggle" aria-label="Ouvrir le menu">
@@ -108,7 +107,7 @@ export default function HomePage() {
                       <h1>Votre<br/>Aventure <br/>commence ici</h1>
                       <img src="/assets/img/introduction-visual.png" alt="Astronaute symbolisant l'exploration digitale" loading="lazy" />
                       <button className="cta">Ecrivez nous
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 24 24">
                           <path d="M12 4l-1.41 1.41 5.58 5.59H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                         </svg>
                         <span className="btn-background"></span>
@@ -182,14 +181,14 @@ export default function HomePage() {
                         </li>
                       </ul>
                       <button className="slider--prev" type="button" aria-label="Précédent">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 118">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 150 118">
                         <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                           <path d="M561,1169C525,1155,10,640,3,612c-3-13,1-36,8-52c8-15,134-145,281-289C527,41,562,10,590,10c22,0,41,9,61,29 c55,55,49,64-163,278L296,510h575c564,0,576,0,597,20c46,43,37,109-18,137c-19,10-159,13-590,13l-565,1l182,180 c101,99,187,188,193,199c16,30,12,57-12,84C631,1174,595,1183,561,1169z"/>
                         </g>
                         </svg>
                       </button>
                       <button className="slider--next" type="button" aria-label="Suivant">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 118">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 150 118">
                         <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                           <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
                         </g>
@@ -204,13 +203,14 @@ export default function HomePage() {
                       <h2>Nous<br/>Croyons<br/>en des personnes<br/>passionnées</h2>
                       <a href="nos-clients.html" className="btn-clients">Nos clients
                         <span>
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 118">
+                          <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 150 118">
                           <g transform="translate(0.000000,118.000000) scale(0.100000,-0.100000)">
                             <path d="M870,1167c-34-17-55-57-46-90c3-15,81-100,194-211l187-185l-565-1c-431,0-571-3-590-13c-55-28-64-94-18-137c21-20,33-20,597-20h575l-192-193C800,103,794,94,849,39c20-20,39-29,61-29c28,0,63,30,298,262c147,144,272,271,279,282c30,51,23,60-219,304C947,1180,926,1196,870,1167z"/>
                           </g>
                           </svg>
                         </span>
                       </a>
+                      <img src="/assets/img/about-visual.png" alt="About Us" loading="lazy" />
                       <img src="/assets/img/about-visual.png" alt="Portrait artistique symbolisant la passion" loading="lazy" />
                     </div>
                     <div className="about--options">

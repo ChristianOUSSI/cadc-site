@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <body className={`loading ${montserrat.className}`}>
         {/* ÉCRAN DE CHARGEMENT (SPLASH SCREEN) PERSONNALISÉ */}
         <div
