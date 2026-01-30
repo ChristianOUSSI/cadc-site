@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <title>Test - Changement Automatique de Thème</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/inline-extracted.css">
+  <link rel="stylesheet" href="assets/css/theme-auto.css">
+  <style>
+    .test-container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: var(--theme-background);
+      color: var(--theme-text);
+      border-radius: 8px;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .test-section {
+      margin: 30px 0;
+      padding: 20px;
+      border-left: 4px solid var(--theme-accent);
+      background-color: var(--theme-card);
+      border-radius: 4px;
+    }
+
+    .test-section h2 {
+      margin-top: 0;
+      color: var(--theme-accent);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+
+    .test-btn {
+      padding: 10px 20px;
+      border: 2px solid var(--theme-accent);
+      background-color: transparent;
+      color: var(--theme-text);
+      cursor: pointer;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .test-btn:hover {
+      background-color: var(--theme-accent);
+      color: var(--theme-background);
+    }
+
+    .info-box {
+      background-color: rgba(15, 51, 255, 0.1);
+      border: 1px solid var(--theme-accent);
+      padding: 15px;
+      border-radius: 4px;
+      margin: 15px 0;
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    .color-preview {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+
+    .color-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .color-square {
+      width: 60px;
+      height: 60px;
+      border-radius: 4px;
+      border: 2px solid var(--theme-border);
+    }
+
+    .color-label {
+      font-size: 12px;
+      text-align: center;
+      max-width: 60px;
+    }
+
+    .theme-indicator {
+      display: inline-block;
+      padding: 8px 16px;
+      background-color: var(--theme-accent);
+      color: var(--theme-background);
+      border-radius: 20px;
+      font-weight: bold;
+      margin: 5px 5px 5px 0;
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 15px 0;
+    }
+
+    .demo-card {
+      padding: 15px;
+      background-color: var(--theme-card);
+      border: 1px solid var(--theme-border);
+      border-radius: 4px;
+      color: var(--theme-text);
+    }
+
+    .demo-card h4 {
+      margin-top: 0;
+      color: var(--theme-accent);
+    }
+
+    code {
+      background-color: var(--theme-card);
+      padding: 2px 6px;
+      border-radius: 3px;
+      color: var(--theme-accent);
+      font-family: monospace;
+      font-size: 13px;
+    }
+
+    .time-display {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--theme-accent);
+      margin: 10px 0;
+    }
+
+    .success {
+      color: #00ff00;
+      background-color: rgba(0, 255, 0, 0.1);
+      padding: 10px;
+      border-radius: 4px;
+      margin: 10px 0;
+      display: none;
+    }
+
+    .success.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="test-container">
+  <h1>🌓 Test du Système de Changement de Thème Automatique</h1>
+  
+  <div class="test-section">
+    <h2>ℹ️ Information Actuelle</h2>
+    <div class="time-display" id="current-time">--:--</div>
+    <div class="info-box" id="current-info">
+      Thème actuel: <span id="current-theme">Chargement...</span><br>
+      Heure: <span id="info-time">--:--</span><br>
+      Période: <span id="info-period">--:--</span>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>🎨 Tester les Thèmes</h2>
+    <p>Cliquez sur un bouton pour forcer un thème spécifique :</p>
+    <div class="button-group">
+      <button class="test-btn" onclick="forceTheme('jour')">☀️ JOUR (6h-18h)</button>
+      <button class="test-btn" onclick="forceTheme('soirée')">🌆 SOIRÉE (18h-22h)</button>
+      <button class="test-btn" onclick="forceTheme('nuit')">🌙 NUIT (22h-6h)</button>
+      <button class="test-btn" onclick="resetTheme()">↻ Réinitialiser</button>
+    </div>
+    <div class="success" id="success-message">✓ Thème changé avec succès!</div>
+  </div>
+
+  <div class="test-section">
+    <h2>🎨 Aperçu des Couleurs</h2>
+    <div class="color-preview" id="colors-preview">
+      <!-- Rempli par JavaScript -->
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>📋 Variables CSS Disponibles</h2>
+    <p>Les variables CSS suivantes sont automatiquement mises à jour selon le thème :</p>
+    <div class="demo-grid">
+      <div class="demo-card">
+        <h4>--theme-background</h4>
+        <p>Couleur de fond principal du site</p>
+        <code id="var-background">#0c0c0c</code>
+      </div>
+      <div class="demo-card">
+        <h4>--theme-text</h4>
+        <p>Couleur du texte principal</p>
+        <code id="var-text">#ffffff</code>
+      </div>
+      <div class="demo-card">
+        <h4>--theme-accent</h4>
+        <p>Couleur d'accent (bleu)</p>
+        <code id="var-accent">#5a7cff</code>
+      </div>
+      <div class="demo-card">
+        <h4>--theme-muted</h4>
+        <p>Couleur des textes secondaires</p>
+        <code id="var-muted">#666666</code>
+      </div>
+      <div class="demo-card">
+        <h4>--theme-border</h4>
+        <p>Couleur des bordures</p>
+        <code id="var-border">#282828</code>
+      </div>
+      <div class="demo-card">
+        <h4>--theme-card</h4>
+        <p>Couleur de fond des cartes</p>
+        <code id="var-card">#1a1a1a</code>
+      </div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>💻 Console JavaScript</h2>
+    <p>Vous pouvez tester le système via la console navigateur (F12) :</p>
+    <div class="info-box">
+      <strong>Voir les infos du thème actuel :</strong><br>
+      <code>window.themeSwitcher.getThemeInfo()</code><br>
+      <br>
+      <strong>Forcer un thème :</strong><br>
+      <code>window.themeSwitcher.forceTheme('jour')</code><br>
+      <code>window.themeSwitcher.forceTheme('soirée')</code><br>
+      <code>window.themeSwitcher.forceTheme('nuit')</code><br>
+      <br>
+      <strong>Écouter les changements de thème :</strong><br>
+      <code>document.addEventListener('themeChanged', (e) => console.log(e.detail))</code>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>📱 Démonstration Multi-Thème</h2>
+    <div class="demo-grid">
+      <div class="demo-card">
+        <h4>Jour ☀️</h4>
+        <p>Fond blanc, texte gris foncé. Idéal pour lire pendant la journée.</p>
+      </div>
+      <div class="demo-card">
+        <h4>Soirée 🌆</h4>
+        <p>Fond gris, texte blanc. Transition progressive vers la nuit.</p>
+      </div>
+      <div class="demo-card">
+        <h4>Nuit 🌙</h4>
+        <p>Fond noir, texte blanc. Réduit la fatigue oculaire la nuit.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h2>ℹ️ À Propos du Système</h2>
+    <ul>
+      <li><strong>Automatique :</strong> Le thème change automatiquement selon l'heure du système</li>
+      <li><strong>Transitions lisses :</strong> Les changements de thème sont animés (0.3s)</li>
+      <li><strong>Vérification toutes les minutes :</strong> L'heure est vérifiée toutes les 60 secondes</li>
+      <li><strong>Variables CSS :</strong> Utilise des variables CSS pour une maintenance facile</li>
+      <li><strong>Événements personnalisés :</strong> Déclenche un événement <code>themeChanged</code> lors de chaque changement</li>
+      <li><strong>Sans dépendances :</strong> Fonctionne sans jQuery ou autre bibliothèque</li>
+    </ul>
+  </div>
+
+  <hr style="border-color: var(--theme-border); margin: 30px 0;">
+  
+  <footer style="text-align: center; color: var(--theme-muted); font-size: 12px;">
+    <p>Système de Changement de Thème Automatique v1.0 | 2026</p>
+    <p>Cette page de test démontre toutes les fonctionnalités du système de thème</p>
+  </footer>
+</div>
+
+<script src="assets/js/theme-switcher.js"></script>
+<script>
+  // Mettre à jour les informations
+  function updateInfo() {
+    const info = window.themeSwitcher.getThemeInfo();
+    document.getElementById('current-theme').textContent = info.current.toUpperCase();
+    document.getElementById('info-time').textContent = info.time;
+    document.getElementById('current-time').textContent = info.time;
+    
+    // Déterminer la période
+    let period = '🌙 Nuit (22h-6h)';
+    if (info.current === 'jour') period = '☀️ Jour (6h-18h)';
+    else if (info.current === 'soirée') period = '🌆 Soirée (18h-22h)';
+    document.getElementById('info-period').textContent = period;
+
+    // Mettre à jour les couleurs
+    updateColors(info.colors);
+
+    // Mettre à jour les variables CSS affichées
+    const root = document.documentElement;
+    document.getElementById('var-background').textContent = 
+      getComputedStyle(root).getPropertyValue('--theme-background').trim();
+    document.getElementById('var-text').textContent = 
+      getComputedStyle(root).getPropertyValue('--theme-text').trim();
+    document.getElementById('var-accent').textContent = 
+      getComputedStyle(root).getPropertyValue('--theme-accent').trim();
+    document.getElementById('var-muted').textContent = 
+      getComputedStyle(root).getPropertyValue('--theme-muted').trim();
+    document.getElementById('var-border').textContent = 
+      getComputedStyle(root).getPropertyValue('--theme-border').trim();
+    document.getElementById('var-card').textContent = 
+      getComputedStyle(root).getPropertyValue('--theme-card').trim();
+  }
+
+  function updateColors(colors) {
+    let html = '';
+    for (const [key, value] of Object.entries(colors)) {
+      if (key !== 'shadow') { // Ignorer shadow qui est rgba
+        html += `
+          <div class="color-box">
+            <div class="color-square" style="background-color: ${value};"></div>
+            <div class="color-label">
+              <strong>${key}</strong><br>
+              <code style="font-size: 11px;">${value}</code>
+            </div>
+          </div>
+        `;
+      }
+    }
+    document.getElementById('colors-preview').innerHTML = html;
+  }
+
+  function forceTheme(themeName) {
+    window.themeSwitcher.forceTheme(themeName);
+    updateInfo();
+    
+    // Afficher le message de succès
+    const msg = document.getElementById('success-message');
+    msg.classList.add('show');
+    setTimeout(() => msg.classList.remove('show'), 2000);
+  }
+
+  function resetTheme() {
+    window.themeSwitcher.applyCurrentTheme();
+    updateInfo();
+    
+    const msg = document.getElementById('success-message');
+    msg.textContent = '✓ Thème réinitialisé automatiquement!';
+    msg.classList.add('show');
+    setTimeout(() => {
+      msg.textContent = '✓ Thème changé avec succès!';
+      msg.classList.remove('show');
+    }, 2000);
+  }
+
+  // Écouter les changements de thème
+  document.addEventListener('themeChanged', (event) => {
+    console.log('🎨 Thème changé:', event.detail);
+    updateInfo();
+  });
+
+  // Mettre à jour l'horloge
+  setInterval(() => {
+    const now = new Date();
+    document.getElementById('current-time').textContent = 
+      `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+  }, 1000);
+
+  // Initialiser au chargement
+  setTimeout(() => {
+    updateInfo();
+  }, 100);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aperçu du bouton amélioré "Écrivez nous"</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 32px;
+      margin-bottom: 15px;
+      font-weight: 900;
+    }
+
+    .description {
+      color: #888;
+      margin-bottom: 50px;
+      font-size: 14px;
+      line-height: 1.6;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .demo-section {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+
+    .demo {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 10px;
+      border: 1px solid rgba(15, 51, 255, 0.2);
+      min-width: 250px;
+    }
+
+    .demo h3 {
+      color: #5a7cff;
+      font-size: 12px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+      letter-spacing: 1px;
+    }
+
+    /* Style du bouton amélioré */
+    .btn-improved {
+      position: relative;
+      padding: 8px 20px 8px 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background-color: transparent;
+      border: 2px solid #5a7cff;
+      border-radius: 4px;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all .3s ease-in-out;
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-improved .btn-background {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      right: 0;
+      height: 100%;
+      background-color: #5a7cff;
+      z-index: -1;
+      transition: left .3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .btn-improved:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(15, 51, 255, 0.4);
+      color: #0c0c0c;
+    }
+
+    .btn-improved:hover .btn-background {
+      left: 0;
+    }
+
+    .btn-improved:hover svg {
+      transform: translateX(4px);
+      fill: #0c0c0c;
+    }
+
+    .btn-improved:focus {
+      outline: none;
+    }
+
+    .btn-improved svg {
+      position: relative;
+      left: 5px;
+      width: 15px;
+      fill: #fff;
+      transition: transform .3s ease-in-out, fill .3s ease-in-out;
+    }
+
+    /* Ancien style pour comparaison */
+    .btn-old {
+      position: relative;
+      padding: 5px 17px 5px 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-old .btn-background {
+      position: absolute;
+      top: 0;
+      left: 23px;
+      right: 0;
+      height: 100%;
+      background-color: #5a7cff;
+      z-index: -1;
+      transition: left .2s ease-in-out;
+    }
+
+    .btn-old:hover .btn-background {
+      left: 0;
+    }
+
+    .btn-old svg {
+      position: relative;
+      left: 5px;
+      width: 15px;
+      fill: #fff;
+    }
+
+    .features {
+      background: rgba(15, 51, 255, 0.1);
+      border-left: 4px solid #5a7cff;
+      padding: 20px;
+      border-radius: 4px;
+      text-align: left;
+      max-width: 600px;
+      margin: 40px auto 0;
+      color: #ccc;
+      font-size: 13px;
+    }
+
+    .features h4 {
+      color: #5a7cff;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .features ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .features li {
+      margin: 8px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .features li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #5a7cff;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🚀 Bouton "Écrivez nous" Amélioré</h1>
+    <p class="description">
+      Découvrez les améliorations apportées au bouton avec des animations plus fluides, 
+      un meilleur feedback visuel et une expérience utilisateur optimisée.
+    </p>
+
+    <div class="demo-section">
+      <div class="demo">
+        <h3>❌ Ancien Style</h3>
+        <button class="btn-old">Ecrivez nous
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" xml:space="preserve">
+            <path d="M12 4l-1.41 1.41 5.58 5.59H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+          </svg>
+          <span class="btn-background"></span>
+        </button>
+      </div>
+
+      <div class="demo">
+        <h3>✨ Nouveau Style Amélioré</h3>
+        <button class="btn-improved">Ecrivez nous
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" xml:space="preserve">
+            <path d="M12 4l-1.41 1.41 5.58 5.59H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+          </svg>
+          <span class="btn-background"></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="features">
+      <h4>✨ Améliorations Apportées:</h4>
+      <ul>
+        <li><strong>Bordure visuelle</strong> - Ajout d'une bordure bleu neon (2px)</li>
+        <li><strong>Animation fluide</strong> - Transition cubic-bezier plus naturelle</li>
+        <li><strong>Effet de survol</strong> - Mouvement vertical (translateY -2px)</li>
+        <li><strong>Ombre dynamique</strong> - Glow effect rgba(15, 51, 255, 0.4)</li>
+        <li><strong>Changement de couleur</strong> - Texte blanc → noir au survol</li>
+        <li><strong>Animation de la flèche</strong> - Déplacement vers la droite (+4px)</li>
+        <li><strong>Border radius</strong> - Coins arrondis (4px) plus doux</li>
+        <li><strong>Feedback utilisateur</strong> - Meilleure réactivité visuelle</li>
+      </ul>
+    </div>
+  </div>
+<script src="assets/js/theme-switcher.js"></script>
+</body>
+</html>

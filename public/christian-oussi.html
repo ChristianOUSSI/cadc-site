@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Christian OUSSI - Directeur et Dev Fullstack de C.A.D.C.">
+  <title>Christian OUSSI - C.A.D.C. Agence Digitale</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/theme-auto.css">
+  <link rel="stylesheet" href="assets/css/custom-improvements.css">
+  <link rel="stylesheet" href="assets/css/slider-fix.css">
+  <style>
+    body {
+      background-color: #0c0c0c;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .page-wrapper {
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .header-member {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 60px;
+      align-items: start;
+      margin-bottom: 60px;
+    }
+    .member-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 3px solid #5a7cff;
+      overflow: hidden;
+      margin: 0 auto;
+      box-shadow: 0 20px 60px rgba(15, 51, 255, 0.4);
+    }
+    .member-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .member-info h1 {
+      font-size: 48px;
+      font-weight: 900;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #5a7cff, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .member-role {
+      font-size: 20px;
+      color: #5a7cff;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      letter-spacing: 1px;
+    }
+    .member-bio {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #ccc;
+      margin-bottom: 30px;
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .section h2 {
+      font-size: 32px;
+      font-weight: 900;
+      margin-bottom: 30px;
+      color: #5a7cff;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    .section h2::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #5a7cff, transparent);
+    }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+    .skill-card {
+      background: rgba(15, 51, 255, 0.1);
+      border: 1px solid rgba(15, 51, 255, 0.3);
+      border-radius: 8px;
+      padding: 20px;
+      transition: all 0.4s ease-in-out;
+    }
+    .skill-card:hover {
+      background: rgba(15, 51, 255, 0.2);
+      border-color: #5a7cff;
+      box-shadow: 0 0 20px rgba(15, 51, 255, 0.3);
+      transform: translateY(-5px);
+    }
+    .skill-card h3 {
+      font-size: 16px;
+      color: #5a7cff;
+      margin-bottom: 10px;
+      font-weight: 900;
+    }
+    .skill-card p {
+      font-size: 13px;
+      color: #aaa;
+    }
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+    .project-card {
+      background: rgba(15, 51, 255, 0.05);
+      border: 1px solid rgba(15, 51, 255, 0.2);
+      border-radius: 8px;
+      padding: 25px;
+      transition: all 0.4s ease-in-out;
+    }
+    .project-card:hover {
+      background: rgba(15, 51, 255, 0.15);
+      border-color: #5a7cff;
+      transform: translateY(-5px);
+    }
+    .project-card h3 {
+      font-size: 18px;
+      color: #5a7cff;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .project-card p {
+      font-size: 13px;
+      color: #aaa;
+      line-height: 1.6;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 40px;
+      padding: 10px 20px;
+      background: rgba(15, 51, 255, 0.1);
+      border: 1px solid rgba(15, 51, 255, 0.3);
+      border-radius: 4px;
+      color: #5a7cff;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      transition: all 0.3s ease-in-out;
+    }
+    .back-link:hover {
+      background: rgba(15, 51, 255, 0.2);
+      box-shadow: 0 0 15px rgba(15, 51, 255, 0.3);
+    }
+    @media (max-width: 768px) {
+      .header-member {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .member-image {
+        width: 200px;
+        height: 200px;
+      }
+      .member-info h1 {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="container">
+      <a href="index.html" class="back-link">← Retour à l'équipe</a>
+      
+      <div class="header-member">
+        <div class="member-image">
+          <img src="assets/img/work-victory.jpg" alt="Christian OUSSI">
+        </div>
+        <div class="member-info">
+          <h1>Christian OUSSI</h1>
+          <div class="member-role">Directeur Général & Dev Fullstack</div>
+          <div class="member-bio">
+            Christian OUSSI est le fondateur et directeur général de C.A.D.C. Avec plus de 10 ans d'expérience en développement logiciel, il dirige la vision technologique de l'agence et supervise tous les projets de développement web et mobile. Sa passion pour l'innovation et son expertise technique en font un leader visionnaire dans le secteur digital à Douala.
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Compétences Principales</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h3>🚀 Fullstack Development</h3>
+            <p>Maîtrise complète du développement web front-end et back-end avec les frameworks modernes.</p>
+          </div>
+          <div class="skill-card">
+            <h3>💼 Leadership</h3>
+            <p>Direction d'équipes, gestion de projets complexes et mentorat des développeurs junior.</p>
+          </div>
+          <div class="skill-card">
+            <h3>🎯 Architecture Logicielle</h3>
+            <p>Conception d'architectures scalables et performantes pour applications critiques.</p>
+          </div>
+          <div class="skill-card">
+            <h3>📱 Mobile Development</h3>
+            <p>Développement d'applications iOS et Android natives et cross-platform avec Flutter.</p>
+          </div>
+          <div class="skill-card">
+            <h3>☁️ Cloud & DevOps</h3>
+            <p>Déploiement et gestion d'infrastructures cloud sur AWS, Google Cloud et Azure.</p>
+          </div>
+          <div class="skill-card">
+            <h3>🔧 Backend Avancé</h3>
+            <p>Expertise en Node.js, Python, Go et databases (SQL, NoSQL, GraphQL).</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Projets Réalisés</h2>
+        <div class="projects">
+          <div class="project-card">
+            <h3>Plateforme E-Commerce</h3>
+            <p>Développement complet d'une plateforme e-commerce scalable avec paiement intégré, gestion de stock et analytics avancés. Utilisée par 50+ vendeurs.</p>
+          </div>
+          <div class="project-card">
+            <h3>Application Mobile de Booking</h3>
+            <p>Application iOS/Android pour réservation de services locaux. Plus de 10,000 utilisateurs actifs mensuels avec 4.8/5 sur les stores.</p>
+          </div>
+          <div class="project-card">
+            <h3>Système de Gestion d'Entreprise</h3>
+            <p>ERP personnalisé pour multinational avec modules: RH, Finance, Inventory, CRM et Analytics temps réel.</p>
+          </div>
+          <div class="project-card">
+            <h3>API Cloud Microservices</h3>
+            <p>Architecture microservices haute performance sur Kubernetes avec 99.99% uptime et latence <100ms.</p>
+          </div>
+          <div class="project-card">
+            <h3>Dashboard Intelligence Artificielle</h3>
+            <p>Plateforme de visualisation et prédiction de données utilisant Machine Learning et TensorFlow.</p>
+          </div>
+          <div class="project-card">
+            <h3>Marketplace B2B</h3>
+            <p>Plateforme de mise en relation de fournisseurs et acheteurs avec système de rating et transactions sécurisées.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>Vision et Philosophie</h2>
+        <p style="font-size: 15px; line-height: 1.8; color: #ccc; max-width: 800px;">
+          Christian croit que la technologie est un outil puissant pour résoudre des problèmes réels. Il privilégie une approche user-centric où chaque ligne de code a un impact direct sur l'expérience utilisateur. Son objectif est de créer des solutions non seulement techniquement excellentes mais aussi économiquement viables et socialement responsables.
+        </p>
+      </div>
+    </div>
+  </div>
+<script src="assets/js/theme-switcher.js"></script>
+</body>
+</html>

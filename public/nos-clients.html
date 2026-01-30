@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nos Clients et Réalisations - C.A.D.C. Agence Digitale">
+  <title>Nos Clients - C.A.D.C. Agence Digitale Douala</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/theme-auto.css">
+  <link rel="stylesheet" href="assets/css/custom-improvements.css">
+  <link rel="stylesheet" href="assets/css/slider-fix.css">
+  <style>
+    body {
+      background-color: #0c0c0c;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .page-wrapper {
+      min-height: 100vh;
+      padding: 60px 20px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-block;
+      margin-bottom: 40px;
+      padding: 10px 20px;
+      background: rgba(15, 51, 255, 0.1);
+      border: 1px solid rgba(15, 51, 255, 0.3);
+      border-radius: 4px;
+      color: #5a7cff;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      transition: all 0.3s ease-in-out;
+    }
+    .back-link:hover {
+      background: rgba(15, 51, 255, 0.2);
+      box-shadow: 0 0 15px rgba(15, 51, 255, 0.3);
+    }
+    .page-header {
+      text-align: center;
+      margin-bottom: 60px;
+      animation: slideDown 0.8s ease-out;
+    }
+    .page-header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #5a7cff, #fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .page-header p {
+      font-size: 16px;
+      color: #aaa;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .category-card {
+      background: linear-gradient(135deg, rgba(15, 51, 255, 0.1), rgba(15, 51, 255, 0.05));
+      border: 2px solid rgba(15, 51, 255, 0.3);
+      border-radius: 12px;
+      padding: 40px 30px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      position: relative;
+      overflow: hidden;
+    }
+    .category-card::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(15, 51, 255, 0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: all 0.5s ease-in-out;
+      pointer-events: none;
+    }
+    .category-card:hover {
+      background: linear-gradient(135deg, rgba(15, 51, 255, 0.2), rgba(15, 51, 255, 0.1));
+      border-color: #5a7cff;
+      box-shadow: 0 20px 60px rgba(15, 51, 255, 0.3), inset 0 0 30px rgba(15, 51, 255, 0.1);
+      transform: translateY(-10px) scale(1.05);
+    }
+    .category-card:hover::before {
+      opacity: 1;
+      animation: pulse-glow 1s ease-in-out infinite;
+    }
+    .category-icon {
+      font-size: 48px;
+      margin-bottom: 20px;
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+    .category-card:nth-child(2) .category-icon {
+      animation-delay: 0.3s;
+    }
+    .category-card:nth-child(3) .category-icon {
+      animation-delay: 0.6s;
+    }
+    .category-card h2 {
+      font-size: 28px;
+      font-weight: 900;
+      color: #5a7cff;
+      margin-bottom: 15px;
+      transition: all 0.3s ease-in-out;
+    }
+    .category-card p {
+      font-size: 14px;
+      color: #aaa;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+    .category-link {
+      display: inline-block;
+      padding: 10px 25px;
+      background: rgba(15, 51, 255, 0.2);
+      border: 2px solid #5a7cff;
+      border-radius: 4px;
+      color: #5a7cff;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 12px;
+      transition: all 0.3s ease-in-out;
+    }
+    .category-card:hover .category-link {
+      background: #5a7cff;
+      color: #0c0c0c;
+      box-shadow: 0 0 20px rgba(15, 51, 255, 0.6);
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+      padding: 40px;
+      background: rgba(15, 51, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(15, 51, 255, 0.2);
+    }
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+    }
+    .stat-number {
+      font-size: 42px;
+      font-weight: 900;
+      color: #5a7cff;
+      margin-bottom: 10px;
+      animation: countUp 1s ease-out;
+    }
+    .stat-label {
+      font-size: 14px;
+      color: #aaa;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .clients-showcase {
+      background: rgba(15, 51, 255, 0.05);
+      border: 1px solid rgba(15, 51, 255, 0.2);
+      border-radius: 12px;
+      padding: 40px;
+    }
+    .clients-showcase h2 {
+      font-size: 28px;
+      font-weight: 900;
+      color: #5a7cff;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .clients-logos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+    }
+    .client-logo {
+      background: rgba(15, 51, 255, 0.1);
+      border: 2px solid rgba(15, 51, 255, 0.2);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      font-weight: 700;
+      color: #5a7cff;
+      transition: all 0.4s ease-in-out;
+      cursor: pointer;
+    }
+    .client-logo:hover {
+      background: rgba(15, 51, 255, 0.2);
+      border-color: #5a7cff;
+      box-shadow: 0 0 20px rgba(15, 51, 255, 0.3);
+      transform: translateY(-5px);
+    }
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+    @keyframes pulse-glow {
+      0% { transform: scale(0.8); opacity: 0.5; }
+      50% { transform: scale(1.2); opacity: 0.3; }
+      100% { transform: scale(0.8); opacity: 0.5; }
+    }
+    @keyframes countUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 36px; }
+      .categories-grid { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <div class="container">
+      <a href="index.html" class="back-link">← Retour au site</a>
+      
+      <div class="page-header">
+        <h1>Nos Clients & Réalisations</h1>
+        <p>Découvrez nos projets, contrats et réalisations qui font la fierté de C.A.D.C.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number">150+</div>
+          <div class="stat-label">Clients Satisfaits</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Projets Complétés</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Années d'Expérience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Taux de Satisfaction</div>
+        </div>
+      </div>
+
+      <div class="categories-grid">
+        <div class="category-card">
+          <div class="category-icon">🚀</div>
+          <h2>Nos Projets</h2>
+          <p>Explorez nos projets innovants et transformateurs qui redéfinissent les standards du digital en Afrique.</p>
+          <a href="nos-projets.html" class="category-link">Voir les projets</a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">📋</div>
+          <h2>Nos Contrats</h2>
+          <p>Découvrez nos partenariats long-terme avec des entreprises majeures et nos engagements qualité.</p>
+          <a href="nos-contrats.html" class="category-link">Voir les contrats</a>
+        </div>
+
+        <div class="category-card">
+          <div class="category-icon">⭐</div>
+          <h2>Nos Réalisations</h2>
+          <p>Admirez nos meilleures réalisations: applications, sites, et systèmes qui changent les vies.</p>
+          <a href="nos-realisations.html" class="category-link">Voir les réalisations</a>
+        </div>
+      </div>
+
+      <div class="clients-showcase">
+        <h2>Nos Clients de Confiance</h2>
+        <div class="clients-logos">
+          <div class="client-logo">TechAfrica</div>
+          <div class="client-logo">Douala Express</div>
+          <div class="client-logo">InnovateCMR</div>
+          <div class="client-logo">Digital Hub CM</div>
+          <div class="client-logo">StartupNord</div>
+          <div class="client-logo">CloudServices</div>
+          <div class="client-logo">WebMasters</div>
+          <div class="client-logo">DataSync Pro</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="assets/js/theme-switcher.js"></script>
+</body>
+</html>

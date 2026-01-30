@@ -4,7 +4,7 @@ const URLS_TO_CACHE = [
   '/manifest.json',
   '/assets/img/logo.svg',
   '/assets/js/theme-switcher.js',
-  '/assets/js/functions-min.js',
+  '/assets/js/functions.js', // Changed from functions-min.js to functions.js
   '/assets/js/custom.js',
   '/assets/js/gsap-animations.js'
 ];
