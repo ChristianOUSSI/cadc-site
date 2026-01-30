@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 
 export default function HomePage() {
   
@@ -51,11 +51,11 @@ export default function HomePage() {
       if (!document.hidden) {
         const star = document.createElement('div');
         star.className = 'shooting-star';
-        star.style.top = Math.random() * 50 + '%'; 
-        star.style.left = (Math.random() * 50 + 50) + '%'; 
+        star.style.top = Math.random() * 50 + '%';
+        star.style.left = (Math.random() * 50 + 50) + '%';
         star.style.animation = `shooting ${Math.random() * 2 + 1}s linear forwards`;
         container.appendChild(star);
-        
+
         setTimeout(() => { star.remove(); }, 4000);
       }
       setTimeout(scheduleStar, 5000 + Math.random() * 5000);
@@ -63,10 +63,19 @@ export default function HomePage() {
 
     const starTimeout = setTimeout(scheduleStar, 1000);
 
+    // Attacher l'événement du bouton theme toggle
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', handleThemeToggle);
+    }
+
     // Cleanup
     return () => {
       if (document.body.contains(container)) document.body.removeChild(container);
       clearTimeout(starTimeout);
+      if (themeToggleBtn) {
+        themeToggleBtn.removeEventListener('click', handleThemeToggle);
+      }
     };
   }, []);
 
@@ -268,7 +277,9 @@ export default function HomePage() {
                     <div className="hire--grid">
                       <div className="hire-card" style={{ animationDelay: '0s' }}>
                         <div className="hire-icon">🚀</div>
-                        <h3>Développement</h3>
+                        <a href="developpement.html" style={{ textDecoration: 'none', color: 'inherit' }}>
+                          <h3>Développement</h3>
+                        </a>
                         <p>Applications web et mobile</p>
                         <div className="hire-actions">
                           <a href="https://wa.me/237691223916?text=Bonjour%2C%20je%20suis%20intéressé%20par%20vos%20services%20de%20Développement." target="_blank" rel="noopener noreferrer" className="hire-btn whatsapp" title="Contacter via WhatsApp">💬</a>
@@ -277,7 +288,9 @@ export default function HomePage() {
                       </div>
                       <div className="hire-card" style={{ animationDelay: '0.06s' }}>
                         <div className="hire-icon">🎨</div>
-                        <h3>Design</h3>
+                        <a href="design.html" style={{ textDecoration: 'none', color: 'inherit' }}>
+                          <h3>Design</h3>
+                        </a>
                         <p>UI/UX et identité visuelle</p>
                         <div className="hire-actions">
                           <a href="https://wa.me/237691223916?text=Bonjour%2C%20je%20suis%20intéressé%20par%20vos%20services%20de%20Design." target="_blank" rel="noopener noreferrer" className="hire-btn whatsapp" title="Contacter via WhatsApp">💬</a>
@@ -286,7 +299,9 @@ export default function HomePage() {
                       </div>
                       <div className="hire-card" style={{ animationDelay: '0.12s' }}>
                         <div className="hire-icon">📊</div>
-                        <h3>Stratégie</h3>
+                        <a href="strategie.html" style={{ textDecoration: 'none', color: 'inherit' }}>
+                          <h3>Stratégie</h3>
+                        </a>
                         <p>Audit digital et conseil</p>
                         <div className="hire-actions">
                           <a href="https://wa.me/237691223916?text=Bonjour%2C%20je%20suis%20intéressé%20par%20vos%20services%20de%20Stratégie." target="_blank" rel="noopener noreferrer" className="hire-btn whatsapp" title="Contacter via WhatsApp">💬</a>

@@ -126,13 +126,13 @@ export default function RootLayout({
 
         <Script
           src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
         />
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" strategy="afterInteractive" />
+        <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" strategy="afterInteractive" />
         <Script src="/assets/js/theme-switcher.js" strategy="afterInteractive" />
         <Script src="/assets/js/functions-min.js" strategy="afterInteractive" />
         <Script src="/assets/js/custom.js" strategy="afterInteractive" />
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" strategy="afterInteractive" />
-        <Script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" strategy="afterInteractive" />
         <Script src="/assets/js/gsap-animations.js" strategy="afterInteractive" />
       </body>
     </html>
