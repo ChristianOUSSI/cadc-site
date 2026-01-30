@@ -2,11 +2,11 @@
   "name": "c-a-d-c-website",
   "version": "1.0.0",
   "description": "Site web de l'agence digitale C.A.D.C. à Douala, Cameroun",
-  "main": "page.tsx",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next export",
     "lint": "next lint"
   },
   "dependencies": {
