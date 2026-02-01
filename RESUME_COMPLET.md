@@ -113,12 +113,23 @@ Ce projet de **transformation du site C.A.D.C.** a été réalisé en 4 grandes 
 ### Contenu Créé
 - **Caractères ajoutés**: 15,000+
 - **Lignes de code**: 2,000+
-- **Images**: Optimisées pour le web
+- **Images optimisées**: Assets du projet C.A.D.C.
 
 ---
 
-## 🎯 Fonctionnalités Visuelles
+## 🎯 Améliorations Visuelles
 
+### Avant
+```
+❌ Bouton statique et basique
+❌ Intro options sans animations
+❌ Titre hero blanc statique
+❌ Slider équipe sans mouvements
+❌ Navigation basique
+❌ Aucune interactivité premium
+```
+
+### Après
 ```
 ✅ Bouton avec 8 animations premium
 ✅ Intro options hyper dynamique (7+ animations)
