@@ -206,30 +206,98 @@
 
     &--banner
       height: auto
+      min-height: 450px
+      text-align: center
+      padding: 30px 15px
 
-      &::before
-        left: 155px
-
+      &::before,
       &::after
-        left: 310px
+        display: none
 
       h2
         margin-top: 0
-        font-size: 72px
+        font-size: 2.4rem
+        line-height: 1.2
+        margin-bottom: 25px
 
-        &::before
-          top: 43px
-          left: 214px
+      a.btn-clients
+        padding: 16px 35px 16px 30px
+        font-size: 18px
+        margin: 30px auto
+        display: block
+        width: auto
+        max-width: 320px
+        background: linear-gradient(135deg, rgba(15, 51, 255, 0.1) 0%, rgba(135, 206, 235, 0.1) 100%)
+        border: 2px solid #0f33ff
+        border-radius: 8px
+        text-decoration: none
+        color: #fff
+        font-weight: 700
+        text-transform: uppercase
+        transition: all 0.3s ease-in-out
+        box-shadow: 0 0 20px rgba(15, 51, 255, 0.3)
 
-        &::after
-          top: 205px
-          left: 205px
+        &:hover
+          background: linear-gradient(135deg, rgba(15, 51, 255, 0.3) 0%, rgba(135, 206, 235, 0.3) 100%)
+          box-shadow: 0 0 30px rgba(15, 51, 255, 0.6)
+          transform: translateY(-3px)
+
+        span
+          svg
+            width: 20px
+            fill: #0f33ff
+            transition: transform 0.3s ease-in-out
+
+        &:hover span svg
+          transform: translateX(5px)
 
       img
-        display: none
+        display: block !important
+        width: 280px
+        height: auto
+        margin: 30px auto
+        filter: drop-shadow(0 20px 40px rgba(15, 51, 255, 0.4))
+        animation: floatImage 4s ease-in-out infinite
+        position: relative
+        z-index: 2
 
     &--options
-      display: none
+      display: grid
+      grid-template-columns: 1fr
+      gap: 25px
+      padding: 0 20px
+      margin-top: 30px
+
+      & > a
+        padding: 25px 20px
+        text-align: center
+        background: rgba(135, 206, 235, 0.06)
+        border: 1px solid rgba(135, 206, 235, 0.14)
+        border-radius: 10px
+        transition: all 0.3s ease-in-out
+        text-decoration: none
+        color: inherit
+        min-height: 80px
+        display: flex
+        flex-direction: column
+        justify-content: center
+
+        &:hover
+          background: rgba(135, 206, 235, 0.12)
+          border-color: rgba(135, 206, 235, 0.3)
+          transform: translateY(-3px)
+          box-shadow: 0 8px 20px rgba(135, 206, 235, 0.15)
+
+      h3
+        font-size: 20px
+        margin-bottom: 12px
+        color: #5a7cff
+        font-weight: 700
+
+      p
+        font-size: 15px
+        line-height: 1.5
+        margin: 0
 
 // ✨ Keyframes Animations About
 
